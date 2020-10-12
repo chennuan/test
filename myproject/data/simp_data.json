@@ -1,0 +1,15 @@
+{
+  "simp001": {
+      "url": "http://www.webxml.com.cn/WebServices/TraditionalSimplifiedWebService.asmx/toSimplifiedChinese",
+      "headers" : {"Content-Type": "text/xml",
+                   "charset":"utf-8"},
+      "params": {"sText":"陳暖"},
+      "status_code": 200},
+
+  "simp002": {
+      "url": "http://www.webxml.com.cn/WebServices/TraditionalSimplifiedWebService.asmx/toSimplifiedChinese1",
+      "headers" : {"Content-Type": "text/xml",
+                   "charset":"utf-8"},
+      "params": {"sText":"陳暖"},
+      "status_code": 500}
+}

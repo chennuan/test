@@ -1,0 +1,5 @@
+{
+    "url": "http://www.webxml.com.cn/WebServices/ValidateCodeWebService.asmx/cnValidateImage",
+    "bystring": "string",
+    "status_code": 200
+}

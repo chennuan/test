@@ -1,0 +1,11 @@
+{
+  "cnvdimage001": {
+      "url": "http://www.webxml.com.cn/WebServices/ValidateCodeWebService.asmx/cnValidateImage",
+      "bystring": "string",
+      "status_code": 200},
+
+  "cnvdimage002": {
+      "url": "http://www.webxml.com.cn/WebServices/ValidateCodeWebService.asmx/cnValidateImage1",
+      "bystring": "chennuan",
+      "status_code": 500}
+}
