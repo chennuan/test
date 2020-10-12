@@ -1,3 +1,4 @@
+#-*- coding: UTF-8 -*-
 import pytest
 
 from api.lebov2.getParkingPayBase import GetParkingPayBase

@@ -1,3 +1,4 @@
+#-*- coding: UTF-8 -*-
 class BindCar:
     # 绑定车辆
     def __init__(self):

@@ -1,3 +1,4 @@
+#-*- coding: UTF-8 -*-
 import re
 from logging import config, getLogger
 

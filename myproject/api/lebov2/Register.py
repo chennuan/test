@@ -1,4 +1,4 @@
-
+#-*- coding: UTF-8 -*-
 class Register:
     # 注册
     def __init__(self):

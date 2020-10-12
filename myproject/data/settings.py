@@ -1,4 +1,4 @@
-
+#-*- coding: UTF-8 -*-
 Host_test= "https://bobuilder.besclouds.com/"
 Host_test1 = "http://api.juheapi.com/"
 

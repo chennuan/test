@@ -1,3 +1,4 @@
+#-*- coding: UTF-8 -*-
 import pytest
 import json
 from api.ToSimplifiedChinese import ToSimplifiedChinese

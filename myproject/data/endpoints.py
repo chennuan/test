@@ -1,3 +1,4 @@
+#-*- coding: UTF-8 -*-
 # from data.settings import Host_test, Host_test1
 from myproject.data.settings import Host_test, Host_test1, Host_lebov2
 

@@ -1,3 +1,4 @@
+#-*- coding: UTF-8 -*-
 # 导入logging包
 import logging
 

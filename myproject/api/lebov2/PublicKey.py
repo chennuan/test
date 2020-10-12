@@ -1,3 +1,4 @@
+#-*- coding: UTF-8 -*-
 class Publickey:
     # 获取公钥
     def __init__(self):

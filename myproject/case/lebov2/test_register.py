@@ -1,3 +1,4 @@
+#-*- coding: UTF-8 -*-
 from api.lebov2.Register import Register
 from public.http_request import HttpRequest
 

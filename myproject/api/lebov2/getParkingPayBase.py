@@ -1,3 +1,4 @@
+#-*- coding: UTF-8 -*-
 from myproject.data.settings import siteId, OpenID1
 
 

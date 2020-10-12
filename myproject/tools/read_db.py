@@ -1,3 +1,4 @@
+#-*- coding: UTF-8 -*-
 # 导包
 import pymysql
 # 获取连接对象
