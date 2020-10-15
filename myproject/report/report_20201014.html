@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Test Report</title>
+    <style>body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	/* do not increase min-width as some may use split screens */
+	min-width: 800px;
+	color: #999;
+}
+
+h1 {
+	font-size: 24px;
+	color: black;
+}
+
+h2 {
+	font-size: 16px;
+	color: black;
+}
+
+p {
+    color: black;
+}
+
+a {
+	color: #999;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+/******************************
+ * SUMMARY INFORMATION
+ ******************************/
+
+#environment td {
+	padding: 5px;
+	border: 1px solid #E6E6E6;
+}
+
+#environment tr:nth-child(odd) {
+	background-color: #f6f6f6;
+}
+
+/******************************
+ * TEST RESULT COLORS
+ ******************************/
+span.passed, .passed .col-result {
+	color: green;
+}
+span.skipped, span.xfailed, span.rerun, .skipped .col-result, .xfailed .col-result, .rerun .col-result {
+	color: orange;
+}
+span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, .xpassed .col-result  {
+	color: red;
+}
+
+
+/******************************
+ * RESULTS TABLE
+ *
+ * 1. Table Layout
+ * 2. Extra
+ * 3. Sorting items
+ *
+ ******************************/
+
+/*------------------
+ * 1. Table Layout
+ *------------------*/
+
+#results-table {
+	border: 1px solid #e6e6e6;
+	color: #999;
+	font-size: 12px;
+	width: 100%
+}
+
+#results-table th, #results-table td {
+	padding: 5px;
+	border: 1px solid #E6E6E6;
+	text-align: left
+}
+#results-table th {
+	font-weight: bold
+}
+
+/*------------------
+ * 2. Extra
+ *------------------*/
+
+.log:only-child {
+	height: inherit
+}
+.log {
+	background-color: #e6e6e6;
+	border: 1px solid #e6e6e6;
+	color: black;
+	display: block;
+	font-family: "Courier New", Courier, monospace;
+	height: 230px;
+	overflow-y: scroll;
+	padding: 5px;
+	white-space: pre-wrap
+}
+div.image {
+	border: 1px solid #e6e6e6;
+	float: right;
+	height: 240px;
+	margin-left: 5px;
+	overflow: hidden;
+	width: 320px
+}
+div.image img {
+	width: 320px
+}
+div.video {
+	border: 1px solid #e6e6e6;
+	float: right;
+	height: 240px;
+	margin-left: 5px;
+	overflow: hidden;
+	width: 320px
+}
+div.video video {
+	overflow: hidden;
+	width: 320px;
+    height: 240px;
+}
+.collapsed {
+	display: none;
+}
+.expander::after {
+	content: " (show details)";
+	color: #BBB;
+	font-style: italic;
+	cursor: pointer;
+}
+.collapser::after {
+	content: " (hide details)";
+	color: #BBB;
+	font-style: italic;
+	cursor: pointer;
+}
+
+/*------------------
+ * 3. Sorting items
+ *------------------*/
+.sortable {
+	cursor: pointer;
+}
+
+.sort-icon {
+	font-size: 0px;
+	float: left;
+	margin-right: 5px;
+	margin-top: 5px;
+	/*triangle*/
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+}
+
+.inactive .sort-icon {
+	/*finish triangle*/
+	border-top: 8px solid #E6E6E6;
+}
+
+.asc.active .sort-icon {
+	/*finish triangle*/
+	border-bottom: 8px solid #999;
+}
+
+.desc.active .sort-icon {
+	/*finish triangle*/
+	border-top: 8px solid #999;
+}
+</style></head>
+  <body onLoad="init()">
+    <script>/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+
+function toArray(iter) {
+    if (iter === null) {
+        return null;
+    }
+    return Array.prototype.slice.call(iter);
+}
+
+function find(selector, elem) {
+    if (!elem) {
+        elem = document;
+    }
+    return elem.querySelector(selector);
+}
+
+function find_all(selector, elem) {
+    if (!elem) {
+        elem = document;
+    }
+    return toArray(elem.querySelectorAll(selector));
+}
+
+function sort_column(elem) {
+    toggle_sort_states(elem);
+    var colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
+    var key;
+    if (elem.classList.contains('numeric')) {
+        key = key_num;
+    } else if (elem.classList.contains('result')) {
+        key = key_result;
+    } else {
+        key = key_alpha;
+    }
+    sort_table(elem, key(colIndex));
+}
+
+function show_all_extras() {
+    find_all('.col-result').forEach(show_extras);
+}
+
+function hide_all_extras() {
+    find_all('.col-result').forEach(hide_extras);
+}
+
+function show_extras(colresult_elem) {
+    var extras = colresult_elem.parentNode.nextElementSibling;
+    var expandcollapse = colresult_elem.firstElementChild;
+    extras.classList.remove("collapsed");
+    expandcollapse.classList.remove("expander");
+    expandcollapse.classList.add("collapser");
+}
+
+function hide_extras(colresult_elem) {
+    var extras = colresult_elem.parentNode.nextElementSibling;
+    var expandcollapse = colresult_elem.firstElementChild;
+    extras.classList.add("collapsed");
+    expandcollapse.classList.remove("collapser");
+    expandcollapse.classList.add("expander");
+}
+
+function show_filters() {
+    var filter_items = document.getElementsByClassName('filter');
+    for (var i = 0; i < filter_items.length; i++)
+        filter_items[i].hidden = false;
+}
+
+function add_collapse() {
+    // Add links for show/hide all
+    var resulttable = find('table#results-table');
+    var showhideall = document.createElement("p");
+    showhideall.innerHTML = '<a href="javascript:show_all_extras()">Show all details</a> / ' +
+                            '<a href="javascript:hide_all_extras()">Hide all details</a>';
+    resulttable.parentElement.insertBefore(showhideall, resulttable);
+
+    // Add show/hide link to each result
+    find_all('.col-result').forEach(function(elem) {
+        var collapsed = get_query_parameter('collapsed') || 'Passed';
+        var extras = elem.parentNode.nextElementSibling;
+        var expandcollapse = document.createElement("span");
+        if (extras.classList.contains("collapsed")) {
+            expandcollapse.classList.add("expander")
+        } else if (collapsed.includes(elem.innerHTML)) {
+            extras.classList.add("collapsed");
+            expandcollapse.classList.add("expander");
+        } else {
+            expandcollapse.classList.add("collapser");
+        }
+        elem.appendChild(expandcollapse);
+
+        elem.addEventListener("click", function(event) {
+            if (event.currentTarget.parentNode.nextElementSibling.classList.contains("collapsed")) {
+                show_extras(event.currentTarget);
+            } else {
+                hide_extras(event.currentTarget);
+            }
+        });
+    })
+}
+
+function get_query_parameter(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+function init () {
+    reset_sort_headers();
+
+    add_collapse();
+
+    show_filters();
+
+    sort_column(find('.initial-sort'));
+
+    find_all('.sortable').forEach(function(elem) {
+        elem.addEventListener("click",
+                              function(event) {
+                                  sort_column(elem);
+                              }, false)
+    });
+
+};
+
+function sort_table(clicked, key_func) {
+    var rows = find_all('.results-table-row');
+    var reversed = !clicked.classList.contains('asc');
+    var sorted_rows = sort(rows, key_func, reversed);
+    /* Whole table is removed here because browsers acts much slower
+     * when appending existing elements.
+     */
+    var thead = document.getElementById("results-table-head");
+    document.getElementById('results-table').remove();
+    var parent = document.createElement("table");
+    parent.id = "results-table";
+    parent.appendChild(thead);
+    sorted_rows.forEach(function(elem) {
+        parent.appendChild(elem);
+    });
+    document.getElementsByTagName("BODY")[0].appendChild(parent);
+}
+
+function sort(items, key_func, reversed) {
+    var sort_array = items.map(function(item, i) {
+        return [key_func(item), i];
+    });
+
+    sort_array.sort(function(a, b) {
+        var key_a = a[0];
+        var key_b = b[0];
+
+        if (key_a == key_b) return 0;
+
+        if (reversed) {
+            return (key_a < key_b ? 1 : -1);
+        } else {
+            return (key_a > key_b ? 1 : -1);
+        }
+    });
+
+    return sort_array.map(function(item) {
+        var index = item[1];
+        return items[index];
+    });
+}
+
+function key_alpha(col_index) {
+    return function(elem) {
+        return elem.childNodes[1].childNodes[col_index].firstChild.data.toLowerCase();
+    };
+}
+
+function key_num(col_index) {
+    return function(elem) {
+        return parseFloat(elem.childNodes[1].childNodes[col_index].firstChild.data);
+    };
+}
+
+function key_result(col_index) {
+    return function(elem) {
+        var strings = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed',
+                       'Skipped', 'Passed'];
+        return strings.indexOf(elem.childNodes[1].childNodes[col_index].firstChild.data);
+    };
+}
+
+function reset_sort_headers() {
+    find_all('.sort-icon').forEach(function(elem) {
+        elem.parentNode.removeChild(elem);
+    });
+    find_all('.sortable').forEach(function(elem) {
+        var icon = document.createElement("div");
+        icon.className = "sort-icon";
+        icon.textContent = "vvv";
+        elem.insertBefore(icon, elem.firstChild);
+        elem.classList.remove("desc", "active");
+        elem.classList.add("asc", "inactive");
+    });
+}
+
+function toggle_sort_states(elem) {
+    //if active, toggle between asc and desc
+    if (elem.classList.contains('active')) {
+        elem.classList.toggle('asc');
+        elem.classList.toggle('desc');
+    }
+
+    //if inactive, reset all other functions and add ascending active
+    if (elem.classList.contains('inactive')) {
+        reset_sort_headers();
+        elem.classList.remove('inactive');
+        elem.classList.add('active');
+    }
+}
+
+function is_all_rows_hidden(value) {
+  return value.hidden == false;
+}
+
+function filter_table(elem) {
+    var outcome_att = "data-test-result";
+    var outcome = elem.getAttribute(outcome_att);
+    class_outcome = outcome + " results-table-row";
+    var outcome_rows = document.getElementsByClassName(class_outcome);
+
+    for(var i = 0; i < outcome_rows.length; i++){
+        outcome_rows[i].hidden = !elem.checked;
+    }
+
+    var rows = find_all('.results-table-row').filter(is_all_rows_hidden);
+    var all_rows_hidden = rows.length == 0 ? true : false;
+    var not_found_message = document.getElementById("not-found-message");
+    not_found_message.hidden = !all_rows_hidden;
+}
+</script>
+    <h1>report_20201014.html</h1>
+    <p>Report generated on 14-Oct-2020 at 17:29:05 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.1.1</p>
+    <h2>Environment</h2>
+    <table id="environment">
+      <tr>
+        <td>JAVA_HOME</td>
+        <td>D:\Program Files\Java\jdk1.8.0_191</td></tr>
+      <tr>
+        <td>Packages</td>
+        <td>{"pluggy": "0.13.1", "py": "1.9.0", "pytest": "6.0.1"}</td></tr>
+      <tr>
+        <td>Platform</td>
+        <td>Windows-7-6.1.7601-SP1</td></tr>
+      <tr>
+        <td>Plugins</td>
+        <td>{"allure-pytest": "2.8.18", "html": "2.1.1", "metadata": "1.10.0"}</td></tr>
+      <tr>
+        <td>Python</td>
+        <td>3.7.0</td></tr></table>
+    <h2>Summary</h2>
+    <p>5 tests ran in 1.38 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">3 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">2 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <h2>Results</h2>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable result initial-sort" col="result">Result</th>
+          <th class="sortable" col="name">Test</th>
+          <th class="sortable numeric" col="duration">Duration</th>
+          <th>Links</th></tr>
+        <tr hidden="true" id="not-found-message">
+          <th colspan="4">No results found. Try to check the filters</th></tr></thead>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">test_01_getparkingpaybase.py::test_login</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">def test_login():<br/>        service = Login()<br/>&gt;       request = HttpRequest(service)<br/><br/>test_01_getparkingpaybase.py:52: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>..\..\public\http_request.py:26: in __init__<br/>    self.__parese()<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;myproject.public.http_request.HttpRequest object at 0x0000000004709470&gt;<br/><br/>    def __parese(self):<br/>        # 判断object对象中是否存在name属性<br/>        if hasattr(self.service, &#x27;ServiceName&#x27;):<br/>            self.url = getattr(endpoints, self.service.ServiceName)<br/>            if &quot;{&quot; in self.url:<br/>&gt;               self.url = self.url.format(**self.service.__dict__)<br/><span class="error">E               KeyError: &#x27;openid&#x27;</span><br/><br/>..\..\public\http_request.py:34: KeyError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">test_bincar.py::test_bindcar</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">def test_bindcar():<br/>&gt;       userId1 = get_value(&quot;userId&quot;)<br/><br/>test_bincar.py:21: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>name = &#x27;userId&#x27;, defValue = None<br/><br/>    def get_value(name, defValue=None):<br/>        try:<br/>&gt;           return _global_dict[name]<br/><span class="error">E           NameError: name &#x27;_global_dict&#x27; is not defined</span><br/><br/>..\..\public\global_var.py:22: NameError<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">test_01_getparkingpaybase.py::test_bindcar</td>
+          <td class="col-duration">0.16</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>
+<br/> -----------------------------Captured stderr setup------------------------------ <br/>[2020-10-14 17:29:04,237] http_request.py-&gt;send line:59 [INFO]--------------------------------[Register Start]-----------------------------
+[2020-10-14 17:29:04,238] http_request.py-&gt;send line:60 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/account/register
+[2020-10-14 17:29:04,238] http_request.py-&gt;send line:61 [INFO][Request Header: ]{&quot;Content-Type&quot;: &quot;application/json&quot;}
+[2020-10-14 17:29:04,238] http_request.py-&gt;send line:62 [INFO][Request Body: ]{&quot;nickName&quot;: &quot;\u6211\u53eb\u674e\u72d7\u86cb&quot;, &quot;gender&quot;: 2, &quot;language&quot;: &quot;zh_CN&quot;, &quot;city&quot;: &quot;\u6c88\u9633&quot;, &quot;province&quot;: &quot;\u8fbd\u5b81&quot;, &quot;country&quot;: &quot;\u4e2d\u56fd&quot;, &quot;avatarUrl&quot;: &quot;https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKUA1Nles5pr4qSYwcwcFqjFKNxWPrA8luJYdWXB4ub9YB0OD5sNJD7mkHpcnPRK45BnXtVen51DQ/132&quot;, &quot;openId&quot;: &quot;ohURa5IyyvhXBw89X73HPTcJwEAY&quot;}
+[2020-10-14 17:29:04,318] http_request.py-&gt;send line:67 [INFO][Response Status_Code: ]200
+[2020-10-14 17:29:04,320] http_request.py-&gt;send line:68 [INFO][Response Text: ]{&quot;code&quot;:200,&quot;data&quot;:&quot;157852&quot;,&quot;message&quot;:&quot;注册成功&quot;,&quot;success&quot;:true}
+[2020-10-14 17:29:04,320] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,321] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,321] cheack.py-&gt;comper_str line:14 [INFO].*---157852结果一致
+[2020-10-14 17:29:04,321] cheack.py-&gt;comper_str line:14 [INFO]True---True结果一致
+[2020-10-14 17:29:04,321] cheack.py-&gt;comper_str line:14 [INFO]注册成功---注册成功结果一致
+<br/> ------------------------------Captured stdout call------------------------------ <br/>
+
+
+<br/> ------------------------------Captured stderr call------------------------------ <br/>[2020-10-14 17:29:04,329] http_request.py-&gt;send line:59 [INFO]--------------------------------[Publickey Start]-----------------------------
+[2020-10-14 17:29:04,329] http_request.py-&gt;send line:60 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/publicKey/ohURa5IyyvhXBw89X73HPTcJwEAY
+[2020-10-14 17:29:04,329] http_request.py-&gt;send line:61 [INFO][Request Header: ]{&quot;Content-Type&quot;: &quot;application/json&quot;}
+[2020-10-14 17:29:04,329] http_request.py-&gt;send line:62 [INFO][Request Body: ]{}
+[2020-10-14 17:29:04,370] http_request.py-&gt;send line:67 [INFO][Response Status_Code: ]200
+[2020-10-14 17:29:04,370] http_request.py-&gt;send line:68 [INFO][Response Text: ]{&quot;code&quot;:200,&quot;data&quot;:&quot;e392fcc7b1ddd3e5592f5ba272006ab2&quot;,&quot;message&quot;:&quot;success&quot;,&quot;success&quot;:true}
+[2020-10-14 17:29:04,370] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,370] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,370] cheack.py-&gt;comper_str line:14 [INFO].*---e392fcc7b1ddd3e5592f5ba272006ab2结果一致
+[2020-10-14 17:29:04,370] cheack.py-&gt;comper_str line:14 [INFO]True---True结果一致
+[2020-10-14 17:29:04,371] cheack.py-&gt;comper_str line:14 [INFO]success---success结果一致
+[2020-10-14 17:29:04,372] http_request.py-&gt;send line:59 [INFO]--------------------------------[Token Start]-----------------------------
+[2020-10-14 17:29:04,372] http_request.py-&gt;send line:60 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/token
+[2020-10-14 17:29:04,373] http_request.py-&gt;send line:61 [INFO][Request Header: ]{&quot;Content-Type&quot;: &quot;application/json&quot;}
+[2020-10-14 17:29:04,373] http_request.py-&gt;send line:62 [INFO][Request Body: ]{&quot;username&quot;: &quot;ohURa5IyyvhXBw89X73HPTcJwEAY&quot;, &quot;publicKey&quot;: &quot;e392fcc7b1ddd3e5592f5ba272006ab2&quot;, &quot;type&quot;: 1}
+[2020-10-14 17:29:04,419] http_request.py-&gt;send line:67 [INFO][Response Status_Code: ]200
+[2020-10-14 17:29:04,419] http_request.py-&gt;send line:68 [INFO][Response Text: ]{&quot;code&quot;:200,&quot;data&quot;:{&quot;expirationTime&quot;:&quot;2020-10-15 17:29:04&quot;,&quot;token&quot;:&quot;eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI2Njc3NDQsImV4cCI6MTYwMjc1NDE0NH0.ZjXXKTrCyKKiLzg5y3fNlzBS9i43LQkRW2bvhb88kn8&quot;},&quot;message&quot;:&quot;success&quot;,&quot;success&quot;:true}
+[2020-10-14 17:29:04,419] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,419] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,419] cheack.py-&gt;comper_str line:14 [INFO].*---2020-10-15 17:29:04结果一致
+[2020-10-14 17:29:04,419] cheack.py-&gt;comper_str line:14 [INFO].*---eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI2Njc3NDQsImV4cCI6MTYwMjc1NDE0NH0.ZjXXKTrCyKKiLzg5y3fNlzBS9i43LQkRW2bvhb88kn8结果一致
+[2020-10-14 17:29:04,420] cheack.py-&gt;comper_str line:14 [INFO]True---True结果一致
+[2020-10-14 17:29:04,420] cheack.py-&gt;comper_str line:14 [INFO]success---success结果一致
+[2020-10-14 17:29:04,422] http_request.py-&gt;send line:59 [INFO]--------------------------------[BindCar Start]-----------------------------
+[2020-10-14 17:29:04,422] http_request.py-&gt;send line:60 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/car/bindCar
+[2020-10-14 17:29:04,422] http_request.py-&gt;send line:61 [INFO][Request Header: ]{&quot;Content-Type&quot;: &quot;application/json&quot;, &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI2Njc3NDQsImV4cCI6MTYwMjc1NDE0NH0.ZjXXKTrCyKKiLzg5y3fNlzBS9i43LQkRW2bvhb88kn8&quot;}
+[2020-10-14 17:29:04,422] http_request.py-&gt;send line:62 [INFO][Request Body: ]{&quot;userId&quot;: &quot;157852&quot;, &quot;plateNo&quot;: &quot;\u82cfEL16F0&quot;, &quot;plateColor&quot;: &quot;001&quot;}
+[2020-10-14 17:29:04,487] http_request.py-&gt;send line:67 [INFO][Response Status_Code: ]200
+[2020-10-14 17:29:04,488] http_request.py-&gt;send line:68 [INFO][Response Text: ]{&quot;code&quot;:200,&quot;data&quot;:null,&quot;message&quot;:&quot;绑定车辆成功&quot;,&quot;success&quot;:true}
+[2020-10-14 17:29:04,489] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,489] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,489] cheack.py-&gt;comper_str line:14 [INFO]---None结果一致
+[2020-10-14 17:29:04,489] cheack.py-&gt;comper_str line:14 [INFO]True---True结果一致
+[2020-10-14 17:29:04,489] cheack.py-&gt;comper_str line:14 [INFO]绑定车辆成功---绑定车辆成功结果一致
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">test_01_getparkingpaybase.py::test_getparkingpaybase[苏EL16F0]</td>
+          <td class="col-duration">0.15</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+
+
+<br/> ------------------------------Captured stderr call------------------------------ <br/>[2020-10-14 17:29:04,690] http_request.py-&gt;send line:59 [INFO]--------------------------------[Publickey Start]-----------------------------
+[2020-10-14 17:29:04,690] http_request.py-&gt;send line:60 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/publicKey/ohURa5IyyvhXBw89X73HPTcJwEAY
+[2020-10-14 17:29:04,690] http_request.py-&gt;send line:61 [INFO][Request Header: ]{&quot;Content-Type&quot;: &quot;application/json&quot;}
+[2020-10-14 17:29:04,691] http_request.py-&gt;send line:62 [INFO][Request Body: ]{}
+[2020-10-14 17:29:04,732] http_request.py-&gt;send line:67 [INFO][Response Status_Code: ]200
+[2020-10-14 17:29:04,733] http_request.py-&gt;send line:68 [INFO][Response Text: ]{&quot;code&quot;:200,&quot;data&quot;:&quot;e392fcc7b1ddd3e5592f5ba272006ab2&quot;,&quot;message&quot;:&quot;success&quot;,&quot;success&quot;:true}
+[2020-10-14 17:29:04,733] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,733] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,733] cheack.py-&gt;comper_str line:14 [INFO].*---e392fcc7b1ddd3e5592f5ba272006ab2结果一致
+[2020-10-14 17:29:04,733] cheack.py-&gt;comper_str line:14 [INFO]True---True结果一致
+[2020-10-14 17:29:04,733] cheack.py-&gt;comper_str line:14 [INFO]success---success结果一致
+[2020-10-14 17:29:04,734] http_request.py-&gt;send line:59 [INFO]--------------------------------[Token Start]-----------------------------
+[2020-10-14 17:29:04,735] http_request.py-&gt;send line:60 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/token
+[2020-10-14 17:29:04,735] http_request.py-&gt;send line:61 [INFO][Request Header: ]{&quot;Content-Type&quot;: &quot;application/json&quot;}
+[2020-10-14 17:29:04,735] http_request.py-&gt;send line:62 [INFO][Request Body: ]{&quot;username&quot;: &quot;ohURa5IyyvhXBw89X73HPTcJwEAY&quot;, &quot;publicKey&quot;: &quot;e392fcc7b1ddd3e5592f5ba272006ab2&quot;, &quot;type&quot;: 1}
+[2020-10-14 17:29:04,775] http_request.py-&gt;send line:67 [INFO][Response Status_Code: ]200
+[2020-10-14 17:29:04,775] http_request.py-&gt;send line:68 [INFO][Response Text: ]{&quot;code&quot;:200,&quot;data&quot;:{&quot;expirationTime&quot;:&quot;2020-10-15 17:29:05&quot;,&quot;token&quot;:&quot;eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI2Njc3NDUsImV4cCI6MTYwMjc1NDE0NX0.2YU6gb903HwnF7QPAczil3rbWbGljPyu1klvvjvgS3Q&quot;},&quot;message&quot;:&quot;success&quot;,&quot;success&quot;:true}
+[2020-10-14 17:29:04,775] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,775] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,775] cheack.py-&gt;comper_str line:14 [INFO].*---2020-10-15 17:29:05结果一致
+[2020-10-14 17:29:04,775] cheack.py-&gt;comper_str line:14 [INFO].*---eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI2Njc3NDUsImV4cCI6MTYwMjc1NDE0NX0.2YU6gb903HwnF7QPAczil3rbWbGljPyu1klvvjvgS3Q结果一致
+[2020-10-14 17:29:04,776] cheack.py-&gt;comper_str line:14 [INFO]True---True结果一致
+[2020-10-14 17:29:04,776] cheack.py-&gt;comper_str line:14 [INFO]success---success结果一致
+[2020-10-14 17:29:04,777] http_request.py-&gt;send line:59 [INFO]--------------------------------[GetParkingPayBase Start]-----------------------------
+[2020-10-14 17:29:04,777] http_request.py-&gt;send line:60 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/order/getParkingPayBase/1/001/苏EL16F0/ohURa5IyyvhXBw89X73HPTcJwEAY
+[2020-10-14 17:29:04,777] http_request.py-&gt;send line:61 [INFO][Request Header: ]{&quot;Content-Type&quot;: &quot;application/json&quot;, &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI2Njc3NDUsImV4cCI6MTYwMjc1NDE0NX0.2YU6gb903HwnF7QPAczil3rbWbGljPyu1klvvjvgS3Q&quot;}
+[2020-10-14 17:29:04,777] http_request.py-&gt;send line:62 [INFO][Request Body: ]{}
+[2020-10-14 17:29:04,827] http_request.py-&gt;send line:67 [INFO][Response Status_Code: ]200
+[2020-10-14 17:29:04,830] http_request.py-&gt;send line:68 [INFO][Response Text: ]{&quot;code&quot;:200,&quot;data&quot;:{&quot;carPlateNo&quot;:&quot;苏EL16F0&quot;,&quot;carPlateColor&quot;:&quot;001&quot;,&quot;parkingCode&quot;:&quot;PR010072&quot;,&quot;parkingName&quot;:&quot;人民广场P+R停车场&quot;,&quot;parkingType&quot;:&quot;002&quot;,&quot;orderNo&quot;:null,&quot;inTime&quot;:&quot;2020-10-13 06:30:08&quot;,&quot;parkingDuration&quot;:null,&quot;orderAmount&quot;:null,&quot;payAmount&quot;:null,&quot;orderDetail&quot;:null,&quot;couponAccount&quot;:null,&quot;merchantExpenses&quot;:null,&quot;userType&quot;:null,&quot;allowSettleAllFee&quot;:null,&quot;payStatus&quot;:&quot;000&quot;},&quot;message&quot;:&quot;停车缴费信息&quot;,&quot;success&quot;:true}
+[2020-10-14 17:29:04,830] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,831] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,831] cheack.py-&gt;comper_str line:14 [INFO]苏EL16F0---苏EL16F0结果一致
+[2020-10-14 17:29:04,831] cheack.py-&gt;comper_str line:14 [INFO]001---001结果一致
+[2020-10-14 17:29:04,831] cheack.py-&gt;comper_str line:14 [INFO]PR010072---PR010072结果一致
+[2020-10-14 17:29:04,831] cheack.py-&gt;comper_str line:14 [INFO].*---人民广场P+R停车场结果一致
+[2020-10-14 17:29:04,832] cheack.py-&gt;comper_str line:14 [INFO]002---002结果一致
+[2020-10-14 17:29:04,832] cheack.py-&gt;comper_str line:14 [INFO]---None结果一致
+[2020-10-14 17:29:04,832] cheack.py-&gt;comper_str line:14 [INFO].*---2020-10-13 06:30:08结果一致
+[2020-10-14 17:29:04,832] cheack.py-&gt;comper_str line:14 [INFO]---None结果一致
+[2020-10-14 17:29:04,832] cheack.py-&gt;comper_str line:14 [INFO]---None结果一致
+[2020-10-14 17:29:04,832] cheack.py-&gt;comper_str line:14 [INFO]---None结果一致
+[2020-10-14 17:29:04,832] cheack.py-&gt;comper_str line:14 [INFO]---None结果一致
+[2020-10-14 17:29:04,832] cheack.py-&gt;comper_str line:14 [INFO]---None结果一致
+[2020-10-14 17:29:04,832] cheack.py-&gt;comper_str line:14 [INFO]---None结果一致
+[2020-10-14 17:29:04,833] cheack.py-&gt;comper_str line:14 [INFO]---None结果一致
+[2020-10-14 17:29:04,833] cheack.py-&gt;comper_str line:14 [INFO]---None结果一致
+[2020-10-14 17:29:04,833] cheack.py-&gt;comper_str line:14 [INFO]000---000结果一致
+[2020-10-14 17:29:04,833] cheack.py-&gt;comper_str line:14 [INFO]True---True结果一致
+[2020-10-14 17:29:04,833] cheack.py-&gt;comper_str line:14 [INFO]停车缴费信息---停车缴费信息结果一致
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">test_01_getparkingpaybase.py::test_getbindcarslist</td>
+          <td class="col-duration">0.14</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+
+
+<br/> ------------------------------Captured stderr call------------------------------ <br/>[2020-10-14 17:29:04,842] http_request.py-&gt;send line:59 [INFO]--------------------------------[Publickey Start]-----------------------------
+[2020-10-14 17:29:04,842] http_request.py-&gt;send line:60 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/publicKey/ohURa5IyyvhXBw89X73HPTcJwEAY
+[2020-10-14 17:29:04,842] http_request.py-&gt;send line:61 [INFO][Request Header: ]{&quot;Content-Type&quot;: &quot;application/json&quot;}
+[2020-10-14 17:29:04,842] http_request.py-&gt;send line:62 [INFO][Request Body: ]{}
+[2020-10-14 17:29:04,878] http_request.py-&gt;send line:67 [INFO][Response Status_Code: ]200
+[2020-10-14 17:29:04,879] http_request.py-&gt;send line:68 [INFO][Response Text: ]{&quot;code&quot;:200,&quot;data&quot;:&quot;e392fcc7b1ddd3e5592f5ba272006ab2&quot;,&quot;message&quot;:&quot;success&quot;,&quot;success&quot;:true}
+[2020-10-14 17:29:04,879] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,879] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,879] cheack.py-&gt;comper_str line:14 [INFO].*---e392fcc7b1ddd3e5592f5ba272006ab2结果一致
+[2020-10-14 17:29:04,879] cheack.py-&gt;comper_str line:14 [INFO]True---True结果一致
+[2020-10-14 17:29:04,879] cheack.py-&gt;comper_str line:14 [INFO]success---success结果一致
+[2020-10-14 17:29:04,881] http_request.py-&gt;send line:59 [INFO]--------------------------------[Token Start]-----------------------------
+[2020-10-14 17:29:04,881] http_request.py-&gt;send line:60 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/token
+[2020-10-14 17:29:04,881] http_request.py-&gt;send line:61 [INFO][Request Header: ]{&quot;Content-Type&quot;: &quot;application/json&quot;}
+[2020-10-14 17:29:04,881] http_request.py-&gt;send line:62 [INFO][Request Body: ]{&quot;username&quot;: &quot;ohURa5IyyvhXBw89X73HPTcJwEAY&quot;, &quot;publicKey&quot;: &quot;e392fcc7b1ddd3e5592f5ba272006ab2&quot;, &quot;type&quot;: 1}
+[2020-10-14 17:29:04,927] http_request.py-&gt;send line:67 [INFO][Response Status_Code: ]200
+[2020-10-14 17:29:04,928] http_request.py-&gt;send line:68 [INFO][Response Text: ]{&quot;code&quot;:200,&quot;data&quot;:{&quot;expirationTime&quot;:&quot;2020-10-15 17:29:05&quot;,&quot;token&quot;:&quot;eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI2Njc3NDUsImV4cCI6MTYwMjc1NDE0NX0.2YU6gb903HwnF7QPAczil3rbWbGljPyu1klvvjvgS3Q&quot;},&quot;message&quot;:&quot;success&quot;,&quot;success&quot;:true}
+[2020-10-14 17:29:04,928] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,928] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,928] cheack.py-&gt;comper_str line:14 [INFO].*---2020-10-15 17:29:05结果一致
+[2020-10-14 17:29:04,928] cheack.py-&gt;comper_str line:14 [INFO].*---eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI2Njc3NDUsImV4cCI6MTYwMjc1NDE0NX0.2YU6gb903HwnF7QPAczil3rbWbGljPyu1klvvjvgS3Q结果一致
+[2020-10-14 17:29:04,928] cheack.py-&gt;comper_str line:14 [INFO]True---True结果一致
+[2020-10-14 17:29:04,928] cheack.py-&gt;comper_str line:14 [INFO]success---success结果一致
+[2020-10-14 17:29:04,929] http_request.py-&gt;send line:59 [INFO]--------------------------------[GetBindCarsList Start]-----------------------------
+[2020-10-14 17:29:04,930] http_request.py-&gt;send line:60 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/car/getBindCarsList/1/157852
+[2020-10-14 17:29:04,930] http_request.py-&gt;send line:61 [INFO][Request Header: ]{&quot;Content-Type&quot;: &quot;application/json&quot;, &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI2Njc3NDUsImV4cCI6MTYwMjc1NDE0NX0.2YU6gb903HwnF7QPAczil3rbWbGljPyu1klvvjvgS3Q&quot;}
+[2020-10-14 17:29:04,930] http_request.py-&gt;send line:62 [INFO][Request Body: ]{}
+[2020-10-14 17:29:04,975] http_request.py-&gt;send line:67 [INFO][Response Status_Code: ]200
+[2020-10-14 17:29:04,977] http_request.py-&gt;send line:68 [INFO][Response Text: ]{&quot;code&quot;:200,&quot;data&quot;:[{&quot;id&quot;:152969,&quot;plateNo&quot;:&quot;苏EL16F0&quot;,&quot;plateColor&quot;:&quot;001&quot;,&quot;paymentTagId&quot;:null,&quot;vinNo&quot;:null,&quot;enginNo&quot;:null,&quot;codeName&quot;:null,&quot;codeValue&quot;:null,&quot;openUnPay&quot;:null,&quot;userState&quot;:null}],&quot;message&quot;:&quot;获取绑定车辆列表&quot;,&quot;success&quot;:true}
+[2020-10-14 17:29:04,977] cheack.py-&gt;comper_str line:14 [INFO]200---200结果一致
+[2020-10-14 17:29:04,977] cheack.py-&gt;comper_str line:14 [INFO].*---{&#x27;code&#x27;: 200, &#x27;data&#x27;: [{&#x27;id&#x27;: 152969, &#x27;plateNo&#x27;: &#x27;苏EL16F0&#x27;, &#x27;plateColor&#x27;: &#x27;001&#x27;, &#x27;paymentTagId&#x27;: None, &#x27;vinNo&#x27;: None, &#x27;enginNo&#x27;: None, &#x27;codeName&#x27;: None, &#x27;codeValue&#x27;: None, &#x27;openUnPay&#x27;: None, &#x27;userState&#x27;: None}], &#x27;message&#x27;: &#x27;获取绑定车辆列表&#x27;, &#x27;success&#x27;: True}结果一致
+<br/></div></td></tr></tbody></table></body></html>
