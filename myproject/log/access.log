@@ -7201,3 +7201,524 @@
 [2020-10-15 09:40:01,697] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":null,"message":"解除绑定成功","success":true}
 [2020-10-15 09:40:01,698] cheack.py->comper_str line:14 [INFO]200---200结果一致
 [2020-10-15 09:40:01,698] cheack.py->comper_str line:14 [INFO].*---{'code': 200, 'data': None, 'message': '解除绑定成功', 'success': True}结果一致
+[2020-10-15 11:06:08,155] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:06:08,171] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:06:08,171] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:06:08,171] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:06:08,171] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:06:08,171] http_request.py->send line:61 [INFO]--------------------------------[Register Start]-----------------------------
+[2020-10-15 11:06:08,172] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/account/register
+[2020-10-15 11:06:08,172] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:06:08,172] http_request.py->send line:64 [INFO][Request Body: ]{"nickName": "\u6211\u53eb\u674e\u72d7\u86cb", "gender": 2, "language": "zh_CN", "city": "\u6c88\u9633", "province": "\u8fbd\u5b81", "country": "\u4e2d\u56fd", "avatarUrl": "https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKUA1Nles5pr4qSYwcwcFqjFKNxWPrA8luJYdWXB4ub9YB0OD5sNJD7mkHpcnPRK45BnXtVen51DQ/132", "openId": "ohURa5IyyvhXBw89X73HPTcJwEAY"}
+[2020-10-15 11:06:09,639] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:06:09,646] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":"157872","success":true,"message":"注册成功"}
+[2020-10-15 11:06:09,646] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:09,647] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:09,647] cheack.py->comper_str line:14 [INFO].*---157872结果一致
+[2020-10-15 11:06:09,648] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:06:09,648] cheack.py->comper_str line:14 [INFO]注册成功---注册成功结果一致
+[2020-10-15 11:06:09,662] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:06:09,662] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:06:09,662] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:06:09,662] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:06:09,663] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:06:09,663] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:06:09,663] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:06:09,664] http_request.py->__parese line:34 [INFO]输出获取的属性openid
+[2020-10-15 11:06:09,664] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:06:09,664] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:06:09,664] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:06:09,665] http_request.py->send line:61 [INFO]--------------------------------[Publickey Start]-----------------------------
+[2020-10-15 11:06:09,665] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/publicKey/ohURa5IyyvhXBw89X73HPTcJwEAY
+[2020-10-15 11:06:09,665] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:06:09,666] http_request.py->send line:64 [INFO][Request Body: ]{}
+[2020-10-15 11:06:09,726] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:06:09,726] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":"8a8935b9dad9a07b0689107fa801c8ec","success":true,"message":"success"}
+[2020-10-15 11:06:09,726] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:09,726] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:09,726] cheack.py->comper_str line:14 [INFO].*---8a8935b9dad9a07b0689107fa801c8ec结果一致
+[2020-10-15 11:06:09,727] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:06:09,727] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:06:09,727] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:06:09,727] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:06:09,727] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:06:09,727] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:06:09,727] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:06:09,729] http_request.py->send line:61 [INFO]--------------------------------[Token Start]-----------------------------
+[2020-10-15 11:06:09,729] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/token
+[2020-10-15 11:06:09,729] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:06:09,729] http_request.py->send line:64 [INFO][Request Body: ]{"username": "ohURa5IyyvhXBw89X73HPTcJwEAY", "publicKey": "8a8935b9dad9a07b0689107fa801c8ec", "type": 1}
+[2020-10-15 11:06:09,965] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:06:09,965] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":{"expirationTime":"2020-10-16 11:06:10","token":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzExNzAsImV4cCI6MTYwMjgxNzU3MH0.TOx5sUGHtSxUrrm1r6OVNxcHfVr57uApBAcRkK6hvEQ"},"success":true,"message":"success"}
+[2020-10-15 11:06:09,965] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:09,966] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:09,966] cheack.py->comper_str line:14 [INFO].*---2020-10-16 11:06:10结果一致
+[2020-10-15 11:06:09,966] cheack.py->comper_str line:14 [INFO].*---eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzExNzAsImV4cCI6MTYwMjgxNzU3MH0.TOx5sUGHtSxUrrm1r6OVNxcHfVr57uApBAcRkK6hvEQ结果一致
+[2020-10-15 11:06:09,966] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:06:09,967] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:06:09,969] http_request.py->send line:61 [INFO]--------------------------------[BindCar Start]-----------------------------
+[2020-10-15 11:06:09,969] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/car/bindCar
+[2020-10-15 11:06:09,969] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json", "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzExNzAsImV4cCI6MTYwMjgxNzU3MH0.TOx5sUGHtSxUrrm1r6OVNxcHfVr57uApBAcRkK6hvEQ"}
+[2020-10-15 11:06:09,969] http_request.py->send line:64 [INFO][Request Body: ]{"userId": "157872", "plateNo": "\u82cfEL16F0", "plateColor": "001"}
+[2020-10-15 11:06:10,860] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:06:10,863] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":null,"success":true,"message":"绑定车辆成功"}
+[2020-10-15 11:06:10,864] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:10,864] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:10,865] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:06:10,865] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:06:10,865] cheack.py->comper_str line:14 [INFO]绑定车辆成功---绑定车辆成功结果一致
+[2020-10-15 11:06:10,882] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:06:10,882] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:06:10,883] http_request.py->__parese line:34 [INFO]输出获取的属性siteId
+[2020-10-15 11:06:10,883] http_request.py->__parese line:34 [INFO]输出获取的属性carPlateColor
+[2020-10-15 11:06:10,883] http_request.py->__parese line:34 [INFO]输出获取的属性carPlateNo
+[2020-10-15 11:06:10,883] http_request.py->__parese line:34 [INFO]输出获取的属性openId
+[2020-10-15 11:06:10,884] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:06:10,884] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:06:10,884] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:06:10,884] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:06:10,885] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:06:10,885] http_request.py->__parese line:34 [INFO]输出获取的属性openid
+[2020-10-15 11:06:10,885] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:06:10,885] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:06:10,886] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:06:10,886] http_request.py->send line:61 [INFO]--------------------------------[Publickey Start]-----------------------------
+[2020-10-15 11:06:10,886] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/publicKey/ohURa5IyyvhXBw89X73HPTcJwEAY
+[2020-10-15 11:06:10,887] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:06:10,887] http_request.py->send line:64 [INFO][Request Body: ]{}
+[2020-10-15 11:06:10,949] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:06:10,949] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":"8a8935b9dad9a07b0689107fa801c8ec","success":true,"message":"success"}
+[2020-10-15 11:06:10,949] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:10,949] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:10,950] cheack.py->comper_str line:14 [INFO].*---8a8935b9dad9a07b0689107fa801c8ec结果一致
+[2020-10-15 11:06:10,950] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:06:10,950] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:06:10,950] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:06:10,950] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:06:10,950] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:06:10,950] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:06:10,951] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:06:10,953] http_request.py->send line:61 [INFO]--------------------------------[Token Start]-----------------------------
+[2020-10-15 11:06:10,953] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/token
+[2020-10-15 11:06:10,953] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:06:10,953] http_request.py->send line:64 [INFO][Request Body: ]{"username": "ohURa5IyyvhXBw89X73HPTcJwEAY", "publicKey": "8a8935b9dad9a07b0689107fa801c8ec", "type": 1}
+[2020-10-15 11:06:11,012] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:06:11,013] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":{"expirationTime":"2020-10-16 11:06:11","token":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzExNzEsImV4cCI6MTYwMjgxNzU3MX0.pxdzNHj-dmT6pPX3SHQLtKcc0kgfFfXSn5SxueSB_yc"},"success":true,"message":"success"}
+[2020-10-15 11:06:11,013] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:11,013] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:11,013] cheack.py->comper_str line:14 [INFO].*---2020-10-16 11:06:11结果一致
+[2020-10-15 11:06:11,013] cheack.py->comper_str line:14 [INFO].*---eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzExNzEsImV4cCI6MTYwMjgxNzU3MX0.pxdzNHj-dmT6pPX3SHQLtKcc0kgfFfXSn5SxueSB_yc结果一致
+[2020-10-15 11:06:11,014] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:06:11,014] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:06:11,016] http_request.py->send line:61 [INFO]--------------------------------[GetParkingPayBase Start]-----------------------------
+[2020-10-15 11:06:11,016] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/order/getParkingPayBase/1/001/苏EL16F0/ohURa5IyyvhXBw89X73HPTcJwEAY
+[2020-10-15 11:06:11,016] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json", "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzExNzEsImV4cCI6MTYwMjgxNzU3MX0.pxdzNHj-dmT6pPX3SHQLtKcc0kgfFfXSn5SxueSB_yc"}
+[2020-10-15 11:06:11,016] http_request.py->send line:64 [INFO][Request Body: ]{}
+[2020-10-15 11:06:11,223] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:06:11,232] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":{"carPlateNo":"苏EL16F0","carPlateColor":"001","parkingCode":"PR010072","parkingName":"人民广场P+R停车场","parkingType":"002","orderNo":null,"inTime":"2020-10-13 06:30:08","parkingDuration":null,"orderAmount":null,"payAmount":null,"orderDetail":null,"couponAccount":null,"merchantExpenses":null,"userType":null,"allowSettleAllFee":null,"payStatus":"000"},"success":true,"message":"停车缴费信息"}
+[2020-10-15 11:06:11,232] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:11,233] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:11,233] cheack.py->comper_str line:14 [INFO]苏EL16F0---苏EL16F0结果一致
+[2020-10-15 11:06:11,234] cheack.py->comper_str line:14 [INFO]001---001结果一致
+[2020-10-15 11:06:11,234] cheack.py->comper_str line:14 [INFO]PR010072---PR010072结果一致
+[2020-10-15 11:06:11,234] cheack.py->comper_str line:14 [INFO].*---人民广场P+R停车场结果一致
+[2020-10-15 11:06:11,235] cheack.py->comper_str line:14 [INFO]002---002结果一致
+[2020-10-15 11:06:11,235] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:06:11,235] cheack.py->comper_str line:14 [INFO].*---2020-10-13 06:30:08结果一致
+[2020-10-15 11:06:11,236] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:06:11,236] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:06:11,236] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:06:11,237] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:06:11,237] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:06:11,237] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:06:11,237] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:06:11,238] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:06:11,238] cheack.py->comper_str line:14 [INFO]000---000结果一致
+[2020-10-15 11:06:11,238] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:06:11,239] cheack.py->comper_str line:14 [INFO]停车缴费信息---停车缴费信息结果一致
+[2020-10-15 11:06:11,260] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:06:11,260] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:06:11,261] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:06:11,261] http_request.py->__parese line:34 [INFO]输出获取的属性siteId
+[2020-10-15 11:06:11,261] http_request.py->__parese line:34 [INFO]输出获取的属性userId
+[2020-10-15 11:06:11,261] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:06:11,261] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:06:11,261] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:06:11,262] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:06:11,262] http_request.py->__parese line:34 [INFO]输出获取的属性openid
+[2020-10-15 11:06:11,262] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:06:11,262] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:06:11,262] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:06:11,262] http_request.py->send line:61 [INFO]--------------------------------[Publickey Start]-----------------------------
+[2020-10-15 11:06:11,263] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/publicKey/ohURa5IyyvhXBw89X73HPTcJwEAY
+[2020-10-15 11:06:11,263] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:06:11,263] http_request.py->send line:64 [INFO][Request Body: ]{}
+[2020-10-15 11:06:11,315] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:06:11,316] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":"8a8935b9dad9a07b0689107fa801c8ec","success":true,"message":"success"}
+[2020-10-15 11:06:11,316] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:11,316] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:11,316] cheack.py->comper_str line:14 [INFO].*---8a8935b9dad9a07b0689107fa801c8ec结果一致
+[2020-10-15 11:06:11,316] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:06:11,316] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:06:11,316] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:06:11,316] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:06:11,317] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:06:11,317] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:06:11,317] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:06:11,318] http_request.py->send line:61 [INFO]--------------------------------[Token Start]-----------------------------
+[2020-10-15 11:06:11,318] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/token
+[2020-10-15 11:06:11,318] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:06:11,318] http_request.py->send line:64 [INFO][Request Body: ]{"username": "ohURa5IyyvhXBw89X73HPTcJwEAY", "publicKey": "8a8935b9dad9a07b0689107fa801c8ec", "type": 1}
+[2020-10-15 11:06:11,360] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:06:11,361] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":{"expirationTime":"2020-10-16 11:06:11","token":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzExNzEsImV4cCI6MTYwMjgxNzU3MX0.pxdzNHj-dmT6pPX3SHQLtKcc0kgfFfXSn5SxueSB_yc"},"success":true,"message":"success"}
+[2020-10-15 11:06:11,361] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:11,361] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:11,361] cheack.py->comper_str line:14 [INFO].*---2020-10-16 11:06:11结果一致
+[2020-10-15 11:06:11,361] cheack.py->comper_str line:14 [INFO].*---eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzExNzEsImV4cCI6MTYwMjgxNzU3MX0.pxdzNHj-dmT6pPX3SHQLtKcc0kgfFfXSn5SxueSB_yc结果一致
+[2020-10-15 11:06:11,361] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:06:11,362] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:06:11,363] http_request.py->send line:61 [INFO]--------------------------------[GetBindCarsList Start]-----------------------------
+[2020-10-15 11:06:11,363] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/car/getBindCarsList/1/157872
+[2020-10-15 11:06:11,363] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json", "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzExNzEsImV4cCI6MTYwMjgxNzU3MX0.pxdzNHj-dmT6pPX3SHQLtKcc0kgfFfXSn5SxueSB_yc"}
+[2020-10-15 11:06:11,363] http_request.py->send line:64 [INFO][Request Body: ]{}
+[2020-10-15 11:06:11,414] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:06:11,416] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":[{"id":152969,"plateNo":"苏EL16F0","plateColor":"001","paymentTagId":null,"vinNo":null,"enginNo":null,"codeName":null,"codeValue":null,"openUnPay":null,"userState":null}],"success":true,"message":"获取绑定车辆列表"}
+[2020-10-15 11:06:11,416] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:11,416] cheack.py->comper_str line:14 [INFO].*---{'code': 200, 'data': [{'id': 152969, 'plateNo': '苏EL16F0', 'plateColor': '001', 'paymentTagId': None, 'vinNo': None, 'enginNo': None, 'codeName': None, 'codeValue': None, 'openUnPay': None, 'userState': None}], 'success': True, 'message': '获取绑定车辆列表'}结果一致
+[2020-10-15 11:06:11,425] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:06:11,425] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:06:11,425] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:06:11,425] http_request.py->__parese line:34 [INFO]输出获取的属性userId
+[2020-10-15 11:06:11,426] http_request.py->__parese line:34 [INFO]输出获取的属性carId
+[2020-10-15 11:06:11,426] http_request.py->__parese line:34 [INFO]输出获取的属性plateNo
+[2020-10-15 11:06:11,426] http_request.py->__parese line:34 [INFO]输出获取的属性plateColor
+[2020-10-15 11:06:11,426] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:06:11,426] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:06:11,426] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:06:11,426] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:06:11,426] http_request.py->__parese line:34 [INFO]输出获取的属性openid
+[2020-10-15 11:06:11,426] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:06:11,426] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:06:11,427] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:06:11,427] http_request.py->send line:61 [INFO]--------------------------------[Publickey Start]-----------------------------
+[2020-10-15 11:06:11,427] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/publicKey/ohURa5IyyvhXBw89X73HPTcJwEAY
+[2020-10-15 11:06:11,427] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:06:11,427] http_request.py->send line:64 [INFO][Request Body: ]{}
+[2020-10-15 11:06:11,468] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:06:11,468] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":"8a8935b9dad9a07b0689107fa801c8ec","success":true,"message":"success"}
+[2020-10-15 11:06:11,469] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:11,469] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:11,469] cheack.py->comper_str line:14 [INFO].*---8a8935b9dad9a07b0689107fa801c8ec结果一致
+[2020-10-15 11:06:11,469] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:06:11,469] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:06:11,469] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:06:11,469] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:06:11,469] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:06:11,469] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:06:11,470] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:06:11,471] http_request.py->send line:61 [INFO]--------------------------------[Token Start]-----------------------------
+[2020-10-15 11:06:11,471] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/token
+[2020-10-15 11:06:11,471] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:06:11,471] http_request.py->send line:64 [INFO][Request Body: ]{"username": "ohURa5IyyvhXBw89X73HPTcJwEAY", "publicKey": "8a8935b9dad9a07b0689107fa801c8ec", "type": 1}
+[2020-10-15 11:06:11,517] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:06:11,517] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":{"expirationTime":"2020-10-16 11:06:11","token":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzExNzEsImV4cCI6MTYwMjgxNzU3MX0.pxdzNHj-dmT6pPX3SHQLtKcc0kgfFfXSn5SxueSB_yc"},"success":true,"message":"success"}
+[2020-10-15 11:06:11,518] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:11,518] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:11,518] cheack.py->comper_str line:14 [INFO].*---2020-10-16 11:06:11结果一致
+[2020-10-15 11:06:11,518] cheack.py->comper_str line:14 [INFO].*---eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzExNzEsImV4cCI6MTYwMjgxNzU3MX0.pxdzNHj-dmT6pPX3SHQLtKcc0kgfFfXSn5SxueSB_yc结果一致
+[2020-10-15 11:06:11,518] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:06:11,518] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:06:11,520] http_request.py->send line:61 [INFO]--------------------------------[NnBindCar Start]-----------------------------
+[2020-10-15 11:06:11,520] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/car/unbindCar/157872/152969/苏EL16F0/001
+[2020-10-15 11:06:11,520] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json", "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzExNzEsImV4cCI6MTYwMjgxNzU3MX0.pxdzNHj-dmT6pPX3SHQLtKcc0kgfFfXSn5SxueSB_yc"}
+[2020-10-15 11:06:11,520] http_request.py->send line:64 [INFO][Request Body: ]{}
+[2020-10-15 11:06:11,615] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:06:11,618] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":null,"success":true,"message":"解除绑定成功"}
+[2020-10-15 11:06:11,618] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:06:11,619] cheack.py->comper_str line:14 [INFO].*---{'code': 200, 'data': None, 'success': True, 'message': '解除绑定成功'}结果一致
+[2020-10-15 11:08:47,036] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:08:47,036] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:08:47,036] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:08:47,037] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:08:47,037] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:08:47,037] http_request.py->send line:61 [INFO]--------------------------------[Register Start]-----------------------------
+[2020-10-15 11:08:47,037] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/account/register
+[2020-10-15 11:08:47,037] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:08:47,037] http_request.py->send line:64 [INFO][Request Body: ]{"nickName": "\u6211\u53eb\u674e\u72d7\u86cb", "gender": 2, "language": "zh_CN", "city": "\u6c88\u9633", "province": "\u8fbd\u5b81", "country": "\u4e2d\u56fd", "avatarUrl": "https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKUA1Nles5pr4qSYwcwcFqjFKNxWPrA8luJYdWXB4ub9YB0OD5sNJD7mkHpcnPRK45BnXtVen51DQ/132", "openId": "ohURa5IyyvhXBw89X73HPTcJwEAY"}
+[2020-10-15 11:08:47,134] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:08:47,137] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":"157873","success":true,"message":"注册成功"}
+[2020-10-15 11:08:47,137] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,137] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,137] cheack.py->comper_str line:14 [INFO].*---157873结果一致
+[2020-10-15 11:08:47,137] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:08:47,137] cheack.py->comper_str line:14 [INFO]注册成功---注册成功结果一致
+[2020-10-15 11:08:47,144] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:08:47,145] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:08:47,145] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:08:47,145] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:08:47,145] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:08:47,145] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:08:47,145] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:08:47,145] http_request.py->__parese line:34 [INFO]输出获取的属性openid
+[2020-10-15 11:08:47,145] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:08:47,145] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:08:47,145] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:08:47,146] http_request.py->send line:61 [INFO]--------------------------------[Publickey Start]-----------------------------
+[2020-10-15 11:08:47,146] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/publicKey/ohURa5IyyvhXBw89X73HPTcJwEAY
+[2020-10-15 11:08:47,146] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:08:47,146] http_request.py->send line:64 [INFO][Request Body: ]{}
+[2020-10-15 11:08:47,192] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:08:47,192] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":"2523849b1891ea6d718c0987b7463e6c","success":true,"message":"success"}
+[2020-10-15 11:08:47,192] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,193] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,193] cheack.py->comper_str line:14 [INFO].*---2523849b1891ea6d718c0987b7463e6c结果一致
+[2020-10-15 11:08:47,193] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:08:47,193] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:08:47,193] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:08:47,193] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:08:47,193] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:08:47,193] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:08:47,193] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:08:47,194] http_request.py->send line:61 [INFO]--------------------------------[Token Start]-----------------------------
+[2020-10-15 11:08:47,195] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/token
+[2020-10-15 11:08:47,195] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:08:47,195] http_request.py->send line:64 [INFO][Request Body: ]{"username": "ohURa5IyyvhXBw89X73HPTcJwEAY", "publicKey": "2523849b1891ea6d718c0987b7463e6c", "type": 1}
+[2020-10-15 11:08:47,243] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:08:47,243] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":{"expirationTime":"2020-10-16 11:08:47","token":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzEzMjcsImV4cCI6MTYwMjgxNzcyN30.q51pipw4fmmoxovcqBpA0qHVCrtlpAjyxmK55ASKrtM"},"success":true,"message":"success"}
+[2020-10-15 11:08:47,243] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,243] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,244] cheack.py->comper_str line:14 [INFO].*---2020-10-16 11:08:47结果一致
+[2020-10-15 11:08:47,244] cheack.py->comper_str line:14 [INFO].*---eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzEzMjcsImV4cCI6MTYwMjgxNzcyN30.q51pipw4fmmoxovcqBpA0qHVCrtlpAjyxmK55ASKrtM结果一致
+[2020-10-15 11:08:47,244] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:08:47,244] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:08:47,245] http_request.py->send line:61 [INFO]--------------------------------[BindCar Start]-----------------------------
+[2020-10-15 11:08:47,245] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/car/bindCar
+[2020-10-15 11:08:47,245] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json", "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzEzMjcsImV4cCI6MTYwMjgxNzcyN30.q51pipw4fmmoxovcqBpA0qHVCrtlpAjyxmK55ASKrtM"}
+[2020-10-15 11:08:47,245] http_request.py->send line:64 [INFO][Request Body: ]{"userId": "157873", "plateNo": "\u82cfEL16F0", "plateColor": "001"}
+[2020-10-15 11:08:47,326] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:08:47,328] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":null,"success":true,"message":"绑定车辆成功"}
+[2020-10-15 11:08:47,328] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,328] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,329] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:08:47,329] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:08:47,329] cheack.py->comper_str line:14 [INFO]绑定车辆成功---绑定车辆成功结果一致
+[2020-10-15 11:08:47,342] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:08:47,342] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:08:47,343] http_request.py->__parese line:34 [INFO]输出获取的属性siteId
+[2020-10-15 11:08:47,343] http_request.py->__parese line:34 [INFO]输出获取的属性carPlateColor
+[2020-10-15 11:08:47,343] http_request.py->__parese line:34 [INFO]输出获取的属性carPlateNo
+[2020-10-15 11:08:47,343] http_request.py->__parese line:34 [INFO]输出获取的属性openId
+[2020-10-15 11:08:47,343] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:08:47,344] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:08:47,344] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:08:47,344] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:08:47,344] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:08:47,345] http_request.py->__parese line:34 [INFO]输出获取的属性openid
+[2020-10-15 11:08:47,345] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:08:47,345] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:08:47,345] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:08:47,346] http_request.py->send line:61 [INFO]--------------------------------[Publickey Start]-----------------------------
+[2020-10-15 11:08:47,346] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/publicKey/ohURa5IyyvhXBw89X73HPTcJwEAY
+[2020-10-15 11:08:47,347] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:08:47,347] http_request.py->send line:64 [INFO][Request Body: ]{}
+[2020-10-15 11:08:47,393] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:08:47,393] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":"2523849b1891ea6d718c0987b7463e6c","success":true,"message":"success"}
+[2020-10-15 11:08:47,394] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,394] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,394] cheack.py->comper_str line:14 [INFO].*---2523849b1891ea6d718c0987b7463e6c结果一致
+[2020-10-15 11:08:47,394] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:08:47,394] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:08:47,394] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:08:47,394] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:08:47,394] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:08:47,395] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:08:47,395] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:08:47,396] http_request.py->send line:61 [INFO]--------------------------------[Token Start]-----------------------------
+[2020-10-15 11:08:47,396] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/token
+[2020-10-15 11:08:47,397] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:08:47,397] http_request.py->send line:64 [INFO][Request Body: ]{"username": "ohURa5IyyvhXBw89X73HPTcJwEAY", "publicKey": "2523849b1891ea6d718c0987b7463e6c", "type": 1}
+[2020-10-15 11:08:47,448] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:08:47,448] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":{"expirationTime":"2020-10-16 11:08:47","token":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzEzMjcsImV4cCI6MTYwMjgxNzcyN30.q51pipw4fmmoxovcqBpA0qHVCrtlpAjyxmK55ASKrtM"},"success":true,"message":"success"}
+[2020-10-15 11:08:47,448] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,449] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,449] cheack.py->comper_str line:14 [INFO].*---2020-10-16 11:08:47结果一致
+[2020-10-15 11:08:47,449] cheack.py->comper_str line:14 [INFO].*---eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzEzMjcsImV4cCI6MTYwMjgxNzcyN30.q51pipw4fmmoxovcqBpA0qHVCrtlpAjyxmK55ASKrtM结果一致
+[2020-10-15 11:08:47,449] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:08:47,449] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:08:47,450] http_request.py->send line:61 [INFO]--------------------------------[GetParkingPayBase Start]-----------------------------
+[2020-10-15 11:08:47,450] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/order/getParkingPayBase/1/001/苏EL16F0/ohURa5IyyvhXBw89X73HPTcJwEAY
+[2020-10-15 11:08:47,450] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json", "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzEzMjcsImV4cCI6MTYwMjgxNzcyN30.q51pipw4fmmoxovcqBpA0qHVCrtlpAjyxmK55ASKrtM"}
+[2020-10-15 11:08:47,450] http_request.py->send line:64 [INFO][Request Body: ]{}
+[2020-10-15 11:08:47,511] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:08:47,514] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":{"carPlateNo":"苏EL16F0","carPlateColor":"001","parkingCode":"PR010072","parkingName":"人民广场P+R停车场","parkingType":"002","orderNo":null,"inTime":"2020-10-13 06:30:08","parkingDuration":null,"orderAmount":null,"payAmount":null,"orderDetail":null,"couponAccount":null,"merchantExpenses":null,"userType":null,"allowSettleAllFee":null,"payStatus":"000"},"success":true,"message":"停车缴费信息"}
+[2020-10-15 11:08:47,514] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,514] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,514] cheack.py->comper_str line:14 [INFO]苏EL16F0---苏EL16F0结果一致
+[2020-10-15 11:08:47,514] cheack.py->comper_str line:14 [INFO]001---001结果一致
+[2020-10-15 11:08:47,514] cheack.py->comper_str line:14 [INFO]PR010072---PR010072结果一致
+[2020-10-15 11:08:47,514] cheack.py->comper_str line:14 [INFO].*---人民广场P+R停车场结果一致
+[2020-10-15 11:08:47,515] cheack.py->comper_str line:14 [INFO]002---002结果一致
+[2020-10-15 11:08:47,515] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:08:47,515] cheack.py->comper_str line:14 [INFO].*---2020-10-13 06:30:08结果一致
+[2020-10-15 11:08:47,515] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:08:47,515] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:08:47,515] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:08:47,515] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:08:47,515] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:08:47,515] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:08:47,515] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:08:47,516] cheack.py->comper_str line:14 [INFO]---None结果一致
+[2020-10-15 11:08:47,516] cheack.py->comper_str line:14 [INFO]000---000结果一致
+[2020-10-15 11:08:47,516] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:08:47,516] cheack.py->comper_str line:14 [INFO]停车缴费信息---停车缴费信息结果一致
+[2020-10-15 11:08:47,523] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:08:47,523] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:08:47,523] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:08:47,523] http_request.py->__parese line:34 [INFO]输出获取的属性siteId
+[2020-10-15 11:08:47,523] http_request.py->__parese line:34 [INFO]输出获取的属性userId
+[2020-10-15 11:08:47,523] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:08:47,523] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:08:47,523] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:08:47,524] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:08:47,524] http_request.py->__parese line:34 [INFO]输出获取的属性openid
+[2020-10-15 11:08:47,524] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:08:47,524] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:08:47,524] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:08:47,524] http_request.py->send line:61 [INFO]--------------------------------[Publickey Start]-----------------------------
+[2020-10-15 11:08:47,524] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/publicKey/ohURa5IyyvhXBw89X73HPTcJwEAY
+[2020-10-15 11:08:47,524] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:08:47,524] http_request.py->send line:64 [INFO][Request Body: ]{}
+[2020-10-15 11:08:47,565] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:08:47,565] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":"2523849b1891ea6d718c0987b7463e6c","success":true,"message":"success"}
+[2020-10-15 11:08:47,565] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,565] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,565] cheack.py->comper_str line:14 [INFO].*---2523849b1891ea6d718c0987b7463e6c结果一致
+[2020-10-15 11:08:47,566] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:08:47,566] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:08:47,566] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:08:47,566] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:08:47,566] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:08:47,566] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:08:47,566] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:08:47,568] http_request.py->send line:61 [INFO]--------------------------------[Token Start]-----------------------------
+[2020-10-15 11:08:47,569] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/token
+[2020-10-15 11:08:47,569] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:08:47,569] http_request.py->send line:64 [INFO][Request Body: ]{"username": "ohURa5IyyvhXBw89X73HPTcJwEAY", "publicKey": "2523849b1891ea6d718c0987b7463e6c", "type": 1}
+[2020-10-15 11:08:47,622] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:08:47,622] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":{"expirationTime":"2020-10-16 11:08:47","token":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzEzMjcsImV4cCI6MTYwMjgxNzcyN30.q51pipw4fmmoxovcqBpA0qHVCrtlpAjyxmK55ASKrtM"},"success":true,"message":"success"}
+[2020-10-15 11:08:47,622] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,622] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,623] cheack.py->comper_str line:14 [INFO].*---2020-10-16 11:08:47结果一致
+[2020-10-15 11:08:47,623] cheack.py->comper_str line:14 [INFO].*---eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzEzMjcsImV4cCI6MTYwMjgxNzcyN30.q51pipw4fmmoxovcqBpA0qHVCrtlpAjyxmK55ASKrtM结果一致
+[2020-10-15 11:08:47,623] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:08:47,623] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:08:47,624] http_request.py->send line:61 [INFO]--------------------------------[GetBindCarsList Start]-----------------------------
+[2020-10-15 11:08:47,624] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/car/getBindCarsList/1/157873
+[2020-10-15 11:08:47,625] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json", "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzEzMjcsImV4cCI6MTYwMjgxNzcyN30.q51pipw4fmmoxovcqBpA0qHVCrtlpAjyxmK55ASKrtM"}
+[2020-10-15 11:08:47,625] http_request.py->send line:64 [INFO][Request Body: ]{}
+[2020-10-15 11:08:47,679] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:08:47,680] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":[{"id":152969,"plateNo":"苏EL16F0","plateColor":"001","paymentTagId":null,"vinNo":null,"enginNo":null,"codeName":null,"codeValue":null,"openUnPay":null,"userState":null}],"success":true,"message":"获取绑定车辆列表"}
+[2020-10-15 11:08:47,681] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,681] cheack.py->comper_str line:14 [INFO].*---{'code': 200, 'data': [{'id': 152969, 'plateNo': '苏EL16F0', 'plateColor': '001', 'paymentTagId': None, 'vinNo': None, 'enginNo': None, 'codeName': None, 'codeValue': None, 'openUnPay': None, 'userState': None}], 'success': True, 'message': '获取绑定车辆列表'}结果一致
+[2020-10-15 11:08:47,688] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:08:47,688] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:08:47,688] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:08:47,688] http_request.py->__parese line:34 [INFO]输出获取的属性userId
+[2020-10-15 11:08:47,688] http_request.py->__parese line:34 [INFO]输出获取的属性carId
+[2020-10-15 11:08:47,688] http_request.py->__parese line:34 [INFO]输出获取的属性plateNo
+[2020-10-15 11:08:47,689] http_request.py->__parese line:34 [INFO]输出获取的属性plateColor
+[2020-10-15 11:08:47,689] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:08:47,689] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:08:47,689] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:08:47,689] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:08:47,689] http_request.py->__parese line:34 [INFO]输出获取的属性openid
+[2020-10-15 11:08:47,689] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:08:47,689] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:08:47,689] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:08:47,689] http_request.py->send line:61 [INFO]--------------------------------[Publickey Start]-----------------------------
+[2020-10-15 11:08:47,690] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/publicKey/ohURa5IyyvhXBw89X73HPTcJwEAY
+[2020-10-15 11:08:47,690] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:08:47,690] http_request.py->send line:64 [INFO][Request Body: ]{}
+[2020-10-15 11:08:47,724] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:08:47,725] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":"2523849b1891ea6d718c0987b7463e6c","success":true,"message":"success"}
+[2020-10-15 11:08:47,725] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,725] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,726] cheack.py->comper_str line:14 [INFO].*---2523849b1891ea6d718c0987b7463e6c结果一致
+[2020-10-15 11:08:47,726] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:08:47,726] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:08:47,726] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:08:47,726] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:08:47,726] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:08:47,726] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:08:47,727] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:08:47,728] http_request.py->send line:61 [INFO]--------------------------------[Token Start]-----------------------------
+[2020-10-15 11:08:47,728] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/token
+[2020-10-15 11:08:47,728] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:08:47,729] http_request.py->send line:64 [INFO][Request Body: ]{"username": "ohURa5IyyvhXBw89X73HPTcJwEAY", "publicKey": "2523849b1891ea6d718c0987b7463e6c", "type": 1}
+[2020-10-15 11:08:47,778] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:08:47,778] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":{"expirationTime":"2020-10-16 11:08:48","token":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzEzMjgsImV4cCI6MTYwMjgxNzcyOH0.EKHBZX10I-j4IJD3iYMr9LYgiJEsDDdodvxcKO0gYFI"},"success":true,"message":"success"}
+[2020-10-15 11:08:47,778] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,779] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,779] cheack.py->comper_str line:14 [INFO].*---2020-10-16 11:08:48结果一致
+[2020-10-15 11:08:47,779] cheack.py->comper_str line:14 [INFO].*---eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzEzMjgsImV4cCI6MTYwMjgxNzcyOH0.EKHBZX10I-j4IJD3iYMr9LYgiJEsDDdodvxcKO0gYFI结果一致
+[2020-10-15 11:08:47,779] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:08:47,779] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:08:47,781] http_request.py->send line:61 [INFO]--------------------------------[NnBindCar Start]-----------------------------
+[2020-10-15 11:08:47,781] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/car/unbindCar/157873/152969/苏EL16F0/001
+[2020-10-15 11:08:47,781] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json", "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzEzMjgsImV4cCI6MTYwMjgxNzcyOH0.EKHBZX10I-j4IJD3iYMr9LYgiJEsDDdodvxcKO0gYFI"}
+[2020-10-15 11:08:47,781] http_request.py->send line:64 [INFO][Request Body: ]{}
+[2020-10-15 11:08:47,840] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:08:47,841] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":null,"success":true,"message":"解除绑定成功"}
+[2020-10-15 11:08:47,841] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,841] cheack.py->comper_str line:14 [INFO].*---{'code': 200, 'data': None, 'success': True, 'message': '解除绑定成功'}结果一致
+[2020-10-15 11:08:47,918] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:08:47,919] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:08:47,919] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:08:47,919] http_request.py->__parese line:34 [INFO]输出获取的属性userId
+[2020-10-15 11:08:47,919] http_request.py->__parese line:34 [INFO]输出获取的属性carId
+[2020-10-15 11:08:47,919] http_request.py->__parese line:34 [INFO]输出获取的属性plateNo
+[2020-10-15 11:08:47,919] http_request.py->__parese line:34 [INFO]输出获取的属性plateColor
+[2020-10-15 11:08:47,919] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:08:47,919] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:08:47,919] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:08:47,919] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:08:47,920] http_request.py->__parese line:34 [INFO]输出获取的属性openid
+[2020-10-15 11:08:47,920] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:08:47,920] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:08:47,920] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:08:47,920] http_request.py->send line:61 [INFO]--------------------------------[Publickey Start]-----------------------------
+[2020-10-15 11:08:47,920] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/publicKey/ohURa5IyyvhXBw89X73HPTcJwEAY
+[2020-10-15 11:08:47,920] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:08:47,920] http_request.py->send line:64 [INFO][Request Body: ]{}
+[2020-10-15 11:08:47,965] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:08:47,965] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":"2523849b1891ea6d718c0987b7463e6c","success":true,"message":"success"}
+[2020-10-15 11:08:47,965] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,965] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:47,965] cheack.py->comper_str line:14 [INFO].*---2523849b1891ea6d718c0987b7463e6c结果一致
+[2020-10-15 11:08:47,966] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:08:47,966] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:08:47,966] http_request.py->__parese line:34 [INFO]输出获取的属性ServiceName
+[2020-10-15 11:08:47,966] http_request.py->__parese line:34 [INFO]输出获取的属性method
+[2020-10-15 11:08:47,966] http_request.py->__parese line:34 [INFO]输出获取的属性header
+[2020-10-15 11:08:47,966] http_request.py->__parese line:34 [INFO]输出获取的属性body
+[2020-10-15 11:08:47,966] http_request.py->__parese line:34 [INFO]输出获取的属性expect
+[2020-10-15 11:08:47,967] http_request.py->send line:61 [INFO]--------------------------------[Token Start]-----------------------------
+[2020-10-15 11:08:47,967] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/token
+[2020-10-15 11:08:47,967] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json"}
+[2020-10-15 11:08:47,968] http_request.py->send line:64 [INFO][Request Body: ]{"username": "ohURa5IyyvhXBw89X73HPTcJwEAY", "publicKey": "2523849b1891ea6d718c0987b7463e6c", "type": 1}
+[2020-10-15 11:08:48,013] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:08:48,013] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":{"expirationTime":"2020-10-16 11:08:48","token":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzEzMjgsImV4cCI6MTYwMjgxNzcyOH0.EKHBZX10I-j4IJD3iYMr9LYgiJEsDDdodvxcKO0gYFI"},"success":true,"message":"success"}
+[2020-10-15 11:08:48,013] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:48,013] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:48,013] cheack.py->comper_str line:14 [INFO].*---2020-10-16 11:08:48结果一致
+[2020-10-15 11:08:48,013] cheack.py->comper_str line:14 [INFO].*---eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzEzMjgsImV4cCI6MTYwMjgxNzcyOH0.EKHBZX10I-j4IJD3iYMr9LYgiJEsDDdodvxcKO0gYFI结果一致
+[2020-10-15 11:08:48,014] cheack.py->comper_str line:14 [INFO]True---True结果一致
+[2020-10-15 11:08:48,014] cheack.py->comper_str line:14 [INFO]success---success结果一致
+[2020-10-15 11:08:48,015] http_request.py->send line:61 [INFO]--------------------------------[NnBindCar Start]-----------------------------
+[2020-10-15 11:08:48,015] http_request.py->send line:62 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/car/unbindCar/157757/152969/苏EL16F0/001
+[2020-10-15 11:08:48,015] http_request.py->send line:63 [INFO][Request Header: ]{"Content-Type": "application/json", "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDI3MzEzMjgsImV4cCI6MTYwMjgxNzcyOH0.EKHBZX10I-j4IJD3iYMr9LYgiJEsDDdodvxcKO0gYFI"}
+[2020-10-15 11:08:48,015] http_request.py->send line:64 [INFO][Request Body: ]{}
+[2020-10-15 11:08:48,080] http_request.py->send line:69 [INFO][Response Status_Code: ]200
+[2020-10-15 11:08:48,081] http_request.py->send line:70 [INFO][Response Text: ]{"code":200,"data":null,"success":true,"message":"解除绑定成功"}
+[2020-10-15 11:08:48,081] cheack.py->comper_str line:14 [INFO]200---200结果一致
+[2020-10-15 11:08:48,081] cheack.py->comper_str line:14 [INFO].*---{'code': 200, 'data': None, 'success': True, 'message': '解除绑定成功'}结果一致

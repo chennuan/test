@@ -1,5 +1,5 @@
 #-*- coding: UTF-8 -*-
-from myproject.data.settings import siteId, OpenID1
+from data.settings import siteId, OpenID1
 
 
 class GetParkingPayDetail:
