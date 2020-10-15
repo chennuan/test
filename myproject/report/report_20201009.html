@@ -420,7 +420,7 @@ function filter_table(elem) {
 }
 </script>
     <h1>report_20201009.html</h1>
-    <p>Report generated on 09-Oct-2020 at 09:31:29 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.1.1</p>
+    <p>Report generated on 14-Oct-2020 at 13:22:18 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -439,8 +439,8 @@ function filter_table(elem) {
         <td>Python</td>
         <td>3.7.0</td></tr></table>
     <h2>Summary</h2>
-    <p>2 tests ran in 0.73 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">1 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>0 tests ran in 0.21 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">1 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -451,107 +451,12 @@ function filter_table(elem) {
           <th>Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="failed results-table-row">
+      <tbody class="error results-table-row">
         <tr>
-          <td class="col-result">Failed</td>
-          <td class="col-name">test_getparkingpaybase.py::test_bindcar[苏EL16F1]</td>
-          <td class="col-duration">0.15</td>
+          <td class="col-result">Error</td>
+          <td class="col-name">test_01_getparkingpaybase.py::collect</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">carPlateNo = &#x27;苏EL16F1&#x27;<br/><br/>    @pytest.mark.parametrize(&#x27;carPlateNo&#x27;, carlist)<br/>    def test_bindcar(carPlateNo):<br/>        service = GetParkingPayBase()<br/>        service.carPlateNo = carPlateNo<br/>        request = HttpRequest(service)<br/>        request.send()<br/>&gt;       request.cheack()<br/><br/>test_getparkingpaybase.py:17: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>..\..\public\http_request.py:46: in cheack<br/>    comper_json(self.service.expect, self.response.json())<br/>..\..\public\cheack.py:30: in comper_json<br/>    comper_str(v, actual[k])<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>expect = 200, actual = 500<br/><br/>    def comper_str(expect, actual):<br/>        # exp = str.replace(str(expect), &#x27;*&#x27;, &quot;([\\s\\S]*)&quot;)<br/>        # exp = exp.replace(&quot;(&quot;, &quot;\\(&quot;)<br/>        # exp = exp.replace(&quot;)&quot;, &quot;\\)&quot;)<br/>        if re.match(str(expect), str(actual)):<br/>            log.info(str(expect)+&quot;---&quot;+str(actual)+&quot;结果一致&quot;)<br/>        else:<br/>            log.info(str(expect)+&quot;---&quot;+str(actual)+&quot;结果不一致&quot;)<br/>&gt;           assert False<br/><span class="error">E           AssertionError</span><br/><br/>..\..\public\cheack.py:16: AssertionError<br/> ------------------------------Captured stdout call------------------------------ <br/>
-
-
-<br/> ------------------------------Captured stderr call------------------------------ <br/>[2020-10-09 09:31:29,055] http_request.py-&gt;send line:56 [INFO]--------------------------------[Publickey Start]-----------------------------
-[2020-10-09 09:31:29,055] http_request.py-&gt;send line:57 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/publicKey/ohURa5IyyvhXBw89X73HPTcJwEAY
-[2020-10-09 09:31:29,055] http_request.py-&gt;send line:58 [INFO][Request Header: ]{&quot;Content-Type&quot;: &quot;application/json&quot;}
-[2020-10-09 09:31:29,055] http_request.py-&gt;send line:59 [INFO][Request Body: ]{}
-[2020-10-09 09:31:29,090] http_request.py-&gt;send line:64 [INFO][Response Status_Code: ]200
-[2020-10-09 09:31:29,090] http_request.py-&gt;send line:65 [INFO][Response Text: ]{&quot;code&quot;:200,&quot;data&quot;:&quot;ee9934618da8dec950bb71b822d4f1d6&quot;,&quot;success&quot;:true,&quot;message&quot;:&quot;success&quot;}
-[2020-10-09 09:31:29,091] cheack.py-&gt;comper_str line:13 [INFO]200---200结果一致
-[2020-10-09 09:31:29,091] cheack.py-&gt;comper_str line:13 [INFO]200---200结果一致
-[2020-10-09 09:31:29,091] cheack.py-&gt;comper_str line:13 [INFO].*---ee9934618da8dec950bb71b822d4f1d6结果一致
-[2020-10-09 09:31:29,091] cheack.py-&gt;comper_str line:13 [INFO]True---True结果一致
-[2020-10-09 09:31:29,091] cheack.py-&gt;comper_str line:13 [INFO]success---success结果一致
-[2020-10-09 09:31:29,092] http_request.py-&gt;send line:56 [INFO]--------------------------------[Token Start]-----------------------------
-[2020-10-09 09:31:29,092] http_request.py-&gt;send line:57 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/token
-[2020-10-09 09:31:29,092] http_request.py-&gt;send line:58 [INFO][Request Header: ]{&quot;Content-Type&quot;: &quot;application/json&quot;}
-[2020-10-09 09:31:29,093] http_request.py-&gt;send line:59 [INFO][Request Body: ]{&quot;username&quot;: &quot;ohURa5IyyvhXBw89X73HPTcJwEAY&quot;, &quot;publicKey&quot;: &quot;ee9934618da8dec950bb71b822d4f1d6&quot;, &quot;type&quot;: 1}
-[2020-10-09 09:31:29,140] http_request.py-&gt;send line:64 [INFO][Response Status_Code: ]200
-[2020-10-09 09:31:29,140] http_request.py-&gt;send line:65 [INFO][Response Text: ]{&quot;code&quot;:200,&quot;data&quot;:{&quot;expirationTime&quot;:&quot;2020-10-10 09:31:27&quot;,&quot;token&quot;:&quot;eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDIyMDcwODcsImV4cCI6MTYwMjI5MzQ4N30.gRC1C9cnNiudY3yTac3qZClHxuhDTMTCSI3DwrRZP8g&quot;},&quot;success&quot;:true,&quot;message&quot;:&quot;success&quot;}
-[2020-10-09 09:31:29,140] cheack.py-&gt;comper_str line:13 [INFO]200---200结果一致
-[2020-10-09 09:31:29,140] cheack.py-&gt;comper_str line:13 [INFO]200---200结果一致
-[2020-10-09 09:31:29,141] cheack.py-&gt;comper_str line:13 [INFO].*---2020-10-10 09:31:27结果一致
-[2020-10-09 09:31:29,141] cheack.py-&gt;comper_str line:13 [INFO].*---eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDIyMDcwODcsImV4cCI6MTYwMjI5MzQ4N30.gRC1C9cnNiudY3yTac3qZClHxuhDTMTCSI3DwrRZP8g结果一致
-[2020-10-09 09:31:29,141] cheack.py-&gt;comper_str line:13 [INFO]True---True结果一致
-[2020-10-09 09:31:29,141] cheack.py-&gt;comper_str line:13 [INFO]success---success结果一致
-[2020-10-09 09:31:29,142] http_request.py-&gt;send line:56 [INFO]--------------------------------[GetParkingPayBase Start]-----------------------------
-[2020-10-09 09:31:29,142] http_request.py-&gt;send line:57 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/order/getParkingPayBase/1/001/苏EL16F1/ohURa5IyyvhXBw89X73HPTcJwEAY
-[2020-10-09 09:31:29,142] http_request.py-&gt;send line:58 [INFO][Request Header: ]{&quot;Content-Type&quot;: &quot;application/json&quot;, &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDIyMDcwODcsImV4cCI6MTYwMjI5MzQ4N30.gRC1C9cnNiudY3yTac3qZClHxuhDTMTCSI3DwrRZP8g&quot;}
-[2020-10-09 09:31:29,142] http_request.py-&gt;send line:59 [INFO][Request Body: ]{}
-[2020-10-09 09:31:29,198] http_request.py-&gt;send line:64 [INFO][Response Status_Code: ]200
-[2020-10-09 09:31:29,199] http_request.py-&gt;send line:65 [INFO][Response Text: ]{&quot;code&quot;:500,&quot;data&quot;:{&quot;carPlateNo&quot;:&quot;苏EL16F1&quot;,&quot;carPlateColor&quot;:&quot;001&quot;},&quot;success&quot;:true,&quot;message&quot;:&quot;无停车缴费&quot;}
-[2020-10-09 09:31:29,199] cheack.py-&gt;comper_str line:13 [INFO]200---200结果一致
-[2020-10-09 09:31:29,200] cheack.py-&gt;comper_str line:15 [INFO]200---500结果不一致
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">test_getparkingpaybase.py::test_bindcar[苏EL16F0]</td>
-          <td class="col-duration">0.20</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
-
-
-<br/> ------------------------------Captured stderr call------------------------------ <br/>[2020-10-09 09:31:28,854] http_request.py-&gt;send line:56 [INFO]--------------------------------[Publickey Start]-----------------------------
-[2020-10-09 09:31:28,855] http_request.py-&gt;send line:57 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/publicKey/ohURa5IyyvhXBw89X73HPTcJwEAY
-[2020-10-09 09:31:28,855] http_request.py-&gt;send line:58 [INFO][Request Header: ]{&quot;Content-Type&quot;: &quot;application/json&quot;}
-[2020-10-09 09:31:28,855] http_request.py-&gt;send line:59 [INFO][Request Body: ]{}
-[2020-10-09 09:31:28,930] http_request.py-&gt;send line:64 [INFO][Response Status_Code: ]200
-[2020-10-09 09:31:28,930] http_request.py-&gt;send line:65 [INFO][Response Text: ]{&quot;code&quot;:200,&quot;data&quot;:&quot;ee9934618da8dec950bb71b822d4f1d6&quot;,&quot;success&quot;:true,&quot;message&quot;:&quot;success&quot;}
-[2020-10-09 09:31:28,930] cheack.py-&gt;comper_str line:13 [INFO]200---200结果一致
-[2020-10-09 09:31:28,931] cheack.py-&gt;comper_str line:13 [INFO]200---200结果一致
-[2020-10-09 09:31:28,931] cheack.py-&gt;comper_str line:13 [INFO].*---ee9934618da8dec950bb71b822d4f1d6结果一致
-[2020-10-09 09:31:28,931] cheack.py-&gt;comper_str line:13 [INFO]True---True结果一致
-[2020-10-09 09:31:28,931] cheack.py-&gt;comper_str line:13 [INFO]success---success结果一致
-[2020-10-09 09:31:28,932] http_request.py-&gt;send line:56 [INFO]--------------------------------[Token Start]-----------------------------
-[2020-10-09 09:31:28,932] http_request.py-&gt;send line:57 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/app/v1/auth/token
-[2020-10-09 09:31:28,932] http_request.py-&gt;send line:58 [INFO][Request Header: ]{&quot;Content-Type&quot;: &quot;application/json&quot;}
-[2020-10-09 09:31:28,933] http_request.py-&gt;send line:59 [INFO][Request Body: ]{&quot;username&quot;: &quot;ohURa5IyyvhXBw89X73HPTcJwEAY&quot;, &quot;publicKey&quot;: &quot;ee9934618da8dec950bb71b822d4f1d6&quot;, &quot;type&quot;: 1}
-[2020-10-09 09:31:28,980] http_request.py-&gt;send line:64 [INFO][Response Status_Code: ]200
-[2020-10-09 09:31:28,981] http_request.py-&gt;send line:65 [INFO][Response Text: ]{&quot;code&quot;:200,&quot;data&quot;:{&quot;expirationTime&quot;:&quot;2020-10-10 09:31:27&quot;,&quot;token&quot;:&quot;eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDIyMDcwODcsImV4cCI6MTYwMjI5MzQ4N30.gRC1C9cnNiudY3yTac3qZClHxuhDTMTCSI3DwrRZP8g&quot;},&quot;success&quot;:true,&quot;message&quot;:&quot;success&quot;}
-[2020-10-09 09:31:28,981] cheack.py-&gt;comper_str line:13 [INFO]200---200结果一致
-[2020-10-09 09:31:28,981] cheack.py-&gt;comper_str line:13 [INFO]200---200结果一致
-[2020-10-09 09:31:28,981] cheack.py-&gt;comper_str line:13 [INFO].*---2020-10-10 09:31:27结果一致
-[2020-10-09 09:31:28,981] cheack.py-&gt;comper_str line:13 [INFO].*---eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDIyMDcwODcsImV4cCI6MTYwMjI5MzQ4N30.gRC1C9cnNiudY3yTac3qZClHxuhDTMTCSI3DwrRZP8g结果一致
-[2020-10-09 09:31:28,981] cheack.py-&gt;comper_str line:13 [INFO]True---True结果一致
-[2020-10-09 09:31:28,982] cheack.py-&gt;comper_str line:13 [INFO]success---success结果一致
-[2020-10-09 09:31:28,983] http_request.py-&gt;send line:56 [INFO]--------------------------------[GetParkingPayBase Start]-----------------------------
-[2020-10-09 09:31:28,983] http_request.py-&gt;send line:57 [INFO][URl: ]https://api.usite.online:83/wujiang/dev/api/v2/parking/order/getParkingPayBase/1/001/苏EL16F0/ohURa5IyyvhXBw89X73HPTcJwEAY
-[2020-10-09 09:31:28,984] http_request.py-&gt;send line:58 [INFO][Request Header: ]{&quot;Content-Type&quot;: &quot;application/json&quot;, &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwidXNlcm5hbWUiOiJvaFVSYTVJeXl2aFhCdzg5WDczSFBUY0p3RUFZIiwicGFzc3dvcmQiOiI1QjcxdTFYVjhXQkZHaVNnIiwidHlwZSI6IjEiLCJpYXQiOjE2MDIyMDcwODcsImV4cCI6MTYwMjI5MzQ4N30.gRC1C9cnNiudY3yTac3qZClHxuhDTMTCSI3DwrRZP8g&quot;}
-[2020-10-09 09:31:28,984] http_request.py-&gt;send line:59 [INFO][Request Body: ]{}
-[2020-10-09 09:31:29,041] http_request.py-&gt;send line:64 [INFO][Response Status_Code: ]200
-[2020-10-09 09:31:29,044] http_request.py-&gt;send line:65 [INFO][Response Text: ]{&quot;code&quot;:200,&quot;data&quot;:{&quot;carPlateNo&quot;:&quot;苏EL16F0&quot;,&quot;carPlateColor&quot;:&quot;001&quot;,&quot;parkingCode&quot;:&quot;PR010072&quot;,&quot;parkingName&quot;:&quot;人民广场P+R停车场&quot;,&quot;parkingType&quot;:&quot;002&quot;,&quot;orderNo&quot;:null,&quot;inTime&quot;:&quot;2020-09-29 08:57:07&quot;,&quot;parkingDuration&quot;:null,&quot;orderAmount&quot;:null,&quot;payAmount&quot;:null,&quot;orderDetail&quot;:null,&quot;couponAccount&quot;:null,&quot;merchantExpenses&quot;:null,&quot;userType&quot;:null,&quot;allowSettleAllFee&quot;:null,&quot;payStatus&quot;:&quot;000&quot;},&quot;success&quot;:true,&quot;message&quot;:&quot;停车缴费信息&quot;}
-[2020-10-09 09:31:29,044] cheack.py-&gt;comper_str line:13 [INFO]200---200结果一致
-[2020-10-09 09:31:29,044] cheack.py-&gt;comper_str line:13 [INFO]200---200结果一致
-[2020-10-09 09:31:29,044] cheack.py-&gt;comper_str line:13 [INFO]苏EL16F0---苏EL16F0结果一致
-[2020-10-09 09:31:29,044] cheack.py-&gt;comper_str line:13 [INFO]001---001结果一致
-[2020-10-09 09:31:29,045] cheack.py-&gt;comper_str line:13 [INFO]PR010072---PR010072结果一致
-[2020-10-09 09:31:29,045] cheack.py-&gt;comper_str line:13 [INFO].*---人民广场P+R停车场结果一致
-[2020-10-09 09:31:29,045] cheack.py-&gt;comper_str line:13 [INFO]002---002结果一致
-[2020-10-09 09:31:29,045] cheack.py-&gt;comper_str line:13 [INFO]---None结果一致
-[2020-10-09 09:31:29,045] cheack.py-&gt;comper_str line:13 [INFO]2020-09-29 08:57:07---2020-09-29 08:57:07结果一致
-[2020-10-09 09:31:29,045] cheack.py-&gt;comper_str line:13 [INFO]---None结果一致
-[2020-10-09 09:31:29,045] cheack.py-&gt;comper_str line:13 [INFO]---None结果一致
-[2020-10-09 09:31:29,045] cheack.py-&gt;comper_str line:13 [INFO]---None结果一致
-[2020-10-09 09:31:29,045] cheack.py-&gt;comper_str line:13 [INFO]---None结果一致
-[2020-10-09 09:31:29,045] cheack.py-&gt;comper_str line:13 [INFO]---None结果一致
-[2020-10-09 09:31:29,046] cheack.py-&gt;comper_str line:13 [INFO]---None结果一致
-[2020-10-09 09:31:29,046] cheack.py-&gt;comper_str line:13 [INFO]---None结果一致
-[2020-10-09 09:31:29,046] cheack.py-&gt;comper_str line:13 [INFO]---None结果一致
-[2020-10-09 09:31:29,046] cheack.py-&gt;comper_str line:13 [INFO]000---000结果一致
-[2020-10-09 09:31:29,046] cheack.py-&gt;comper_str line:13 [INFO]True---True结果一致
-[2020-10-09 09:31:29,046] cheack.py-&gt;comper_str line:13 [INFO]停车缴费信息---停车缴费信息结果一致
-<br/></div></td></tr></tbody></table></body></html>
+            <div class="log">ImportError while importing test module &#x27;D:\chennuan\Lebo\git\myproject\case\lebov2\test_01_getparkingpaybase.py&#x27;.<br/>Hint: make sure your test modules/packages have valid Python names.<br/>Traceback:<br/>c:\users\jxs\appdata\local\programs\python\python37\lib\importlib\__init__.py:127: in import_module<br/>    return _bootstrap._gcd_import(name[level:], package, level)<br/>test_01_getparkingpaybase.py:4: in &lt;module&gt;<br/>    from api.lebov2.getParkingPayBase import GetParkingPayBase<br/><span class="error">E   ModuleNotFoundError: No module named &#x27;api&#x27;</span><br/></div></td></tr></tbody></table></body></html>

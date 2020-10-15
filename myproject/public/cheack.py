@@ -2,7 +2,7 @@
 import re
 from logging import config, getLogger
 
-from myproject.public import logs_add
+from public import logs_add
 config.dictConfig(logs_add.LOGGING_DIC)
 log = getLogger("logs")
 

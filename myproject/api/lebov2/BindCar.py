@@ -14,7 +14,7 @@ class BindCar:
         }
         self.expect = {
             "code": 200,
-            "data": "null",
-            "success": "true",
+            "data": "",
+            "success": "True",
             "message": "绑定车辆成功"
         }

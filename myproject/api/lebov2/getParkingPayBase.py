@@ -1,5 +1,5 @@
 #-*- coding: UTF-8 -*-
-from myproject.data.settings import siteId, OpenID1
+from data.settings import siteId, OpenID1
 
 
 class GetParkingPayBase:
@@ -26,7 +26,7 @@ class GetParkingPayBase:
                 "parkingName": ".*",
                 "parkingType": "002",
                 "orderNo": "",
-                "inTime": "2020-09-29 08:57:07",
+                "inTime": ".*",
                 "parkingDuration": "",
                 "orderAmount": "",
                 "payAmount": "",

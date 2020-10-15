@@ -4,19 +4,22 @@ import re
 
 import requests
 
-from myproject.api.Login import Login
-from myproject.api.lebov2.PublicKey import Publickey
-from myproject.api.lebov2.Token import Token
-from myproject.data import endpoints
-from myproject.public import logs_add
-from myproject.public.cheack import comper_str, comper_json
+from api.Login import Login
+from api.lebov2.PublicKey import Publickey
+from api.lebov2.Token import Token
+from data import endpoints
+from public import logs_add
+from public.cheack import comper_str, comper_json
 from logging import config, getLogger
+from api.lebov2.Register import Register
 
 
 config.dictConfig(logs_add.LOGGING_DIC)
 log = getLogger("logs")
 
+
 class HttpRequest:
+
 
     def __init__(self, Service):
         self.service = Service
@@ -27,6 +30,8 @@ class HttpRequest:
         # 判断object对象中是否存在name属性
         if hasattr(self.service, 'ServiceName'):
             self.url = getattr(endpoints, self.service.ServiceName)
+            for k in self.service.__dict__:
+                log.info("输出获取的属性"+ k)
             if "{" in self.url:
                 self.url = self.url.format(**self.service.__dict__)
             # print(self.url)
@@ -75,6 +80,7 @@ class HttpRequest:
             self.body = json.dumps(self.service.body, ensure_ascii=False).encode('utf-8')
             self.print_body = json.dumps(self.service.body)
 
+
     def __auth(self):
         # if self.url.endswith('sessions'):
         #     return
@@ -98,6 +104,7 @@ class HttpRequest:
             }
 
     def getlebotoken(self):
+
         # 获取publickey
         service = Publickey()
         request = HttpRequest(service)
