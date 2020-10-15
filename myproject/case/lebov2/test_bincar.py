@@ -3,13 +3,13 @@
 
 
 # 绑定车辆
-from api.lebov2.BindCar import BindCar
-from public.http_request import HttpRequest
+from myproject.api.lebov2.BindCar import BindCar
+from myproject.public.http_request import HttpRequest
 
-from api.lebov2.unbindCar import NnBindCar
+from myproject.api.lebov2.unbindCar import NnBindCar
 
 
-from public.global_var import get_value
+from myproject.public.global_var import get_value
 
 # def setup_module():
 #     service = NnBindCar()

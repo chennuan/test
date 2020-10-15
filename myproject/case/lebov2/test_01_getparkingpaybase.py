@@ -1,17 +1,17 @@
 #-*- coding: UTF-8 -*-
 import json
 import sys
-sys.path.append('../../')
-print(sys.path)
+# sys.path.append('../../*')
+# print(sys.path)
 import pytest
-from api.lebov2.getParkingPayBase import GetParkingPayBase
+from myproject.api.lebov2.getParkingPayBase import GetParkingPayBase
 from parameterized import parameterized
-from api.lebov2.Register import Register
-from api.lebov2.BindCar import BindCar
-from public.http_request import HttpRequest
-from api.lebov2.unbindCar import NnBindCar
-from api.Login import Login
-from api.lebov2.getBindCarsList import GetBindCarsList
+from myproject.api.lebov2.Register import Register
+from myproject.api.lebov2.BindCar import BindCar
+from myproject.public.http_request import HttpRequest
+from myproject.api.lebov2.unbindCar import NnBindCar
+from myproject.api.Login import Login
+from myproject.api.lebov2.getBindCarsList import GetBindCarsList
 
 '''
 场景用例_001：

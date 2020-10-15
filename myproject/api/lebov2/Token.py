@@ -1,5 +1,5 @@
 #-*- coding: UTF-8 -*-
-from data.settings import OpenID1
+from myproject.data.settings import OpenID1
 
 
 class Token:

@@ -1,8 +1,8 @@
 #-*- coding: UTF-8 -*-
 import re
-from logging import config, getLogger
+from myproject.logging import config, getLogger
 
-from public import logs_add
+from myproject.public import logs_add
 config.dictConfig(logs_add.LOGGING_DIC)
 log = getLogger("logs")
 

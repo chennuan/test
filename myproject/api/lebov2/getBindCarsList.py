@@ -1,5 +1,5 @@
 #-*- coding: UTF-8 -*-
-from data.settings import siteId
+from myproject.data.settings import siteId
 
 
 class GetBindCarsList:
